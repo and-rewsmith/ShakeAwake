@@ -27,11 +27,11 @@ class LogInController: UIViewController {
         
         
         //TESTING BELOW - COMMENT OUT WHEN YOU WANT
-        let dateHandler = AlarmHandler(interval: 15)
-        let dates = dateHandler.dates
-        dateHandler.turnOnAlarm(user: "user1", time: dates[4])
-        dateHandler.turnOffAlarm(user: "user1",time: dates[4])
-        //dateHandler.turnOffAlarm(user: "user1", time: dates[0])
+        let alarmsHandler = AlarmsHandler(user: "TestUser", interval: 15)
+        let alarm1 = Alarm(time: "02:30", isSet: true)
+        alarmsHandler.turnOnAlarm(alarm: alarm1)
+        
+        
         
         
         
