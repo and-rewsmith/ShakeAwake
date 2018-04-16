@@ -23,6 +23,19 @@ class LogInController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColorFromHex(rgbValue:0x795791, alpha: 1)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        //TESTING BELOW - COMMENT OUT WHEN YOU WANT
+//        let dateHandler = AlarmHandler(interval: 15)
+//        let dates = dateHandler.dates
+//        dateHandler.turnOnAlarm(time: dates[4])
+//        dateHandler.turnOffAlarm(time: dates[4])
+//        dateHandler.turnOffAlarm(time: dates[0])
+        
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
