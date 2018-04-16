@@ -55,22 +55,24 @@ class AlarmHandler {
     
     
     //PUT to endpoint
-    func turnOnAlarm(time: String) {
+    func turnOnAlarm(user: String, time: String) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        let date = ref.child(time)
-        date.setValue([]) //We will decide on the model later.
+        let userRef = ref.child(user)
+        let date = userRef.child(time)
+        date.setValue(["test"]) //We will decide on the model later.
         
         
     }
     
     //DEL from endpoint
-    func turnOffAlarm(time: String) {
+    func turnOffAlarm(user: String, time: String) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        let date = ref.child(time)
+        let userRef = ref.child(user)
+        let date = userRef.child(time)
         date.removeValue()
     }
     
