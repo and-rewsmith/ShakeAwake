@@ -18,6 +18,8 @@
 		4E264B1620848AF600AB610D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B1520848AF600AB610D /* GoogleService-Info.plist */; };
 		4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */; };
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
+		4E44B7612085914600067F35 /* LocalSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B7602085914600067F35 /* LocalSave.swift */; };
+		4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B764208595BB00067F35 /* shakeHandler.swift */; };
 		CF33C60FB5F4B4B134C1A249 /* Pods_SwipeAwake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103B67F6610857635852D880 /* Pods_SwipeAwake.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		4E264B1520848AF600AB610D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		4E44B75E2085498300067F35 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		4E44B7602085914600067F35 /* LocalSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSave.swift; sourceTree = "<group>"; };
+		4E44B764208595BB00067F35 /* shakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeHandler.swift; sourceTree = "<group>"; };
 		5C3215489B44DF2DA2CA4F5A /* Pods-SwipeAwake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.release.xcconfig"; sourceTree = "<group>"; };
 		D95189A207CED9DC182C6016 /* Pods-SwipeAwake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,8 @@
 				4E264B11208465FA00AB610D /* AlarmsHandler.swift */,
 				4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */,
 				4E44B75E2085498300067F35 /* Alarm.swift */,
+				4E44B7602085914600067F35 /* LocalSave.swift */,
+				4E44B764208595BB00067F35 /* shakeHandler.swift */,
 			);
 			path = SwipeAwake;
 			sourceTree = "<group>";
@@ -246,10 +252,12 @@
 			files = (
 				4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */,
 				4E264B12208465FA00AB610D /* AlarmsHandler.swift in Sources */,
+				4E44B7612085914600067F35 /* LocalSave.swift in Sources */,
 				4E264B012084377C00AB610D /* AlarmSelectionController.swift in Sources */,
 				3D0DDA87208442BA00B729AC /* LogInController.swift in Sources */,
 				4E264AFF2084377C00AB610D /* AppDelegate.swift in Sources */,
 				4E44B75F2085498300067F35 /* Alarm.swift in Sources */,
+				4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

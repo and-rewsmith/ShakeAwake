@@ -35,6 +35,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Skip"/>
+                                <connections>
+                                    <segue destination="hKz-aM-K95" kind="presentation" id="Adz-BA-cv0"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6la-sW-TdY">
                                 <rect key="frame" x="166" y="182" width="153" height="30"/>
@@ -84,9 +87,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuY-3g-Y24">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuY-3g-Y24">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="71" id="eBu-Sg-YfN" customClass="AlarmTableViewCell" customModule="SwipeAwake" customModuleProvider="target">
@@ -108,7 +111,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <state key="normal" title="Set Alarm">
+                                                    <state key="normal">
                                                         <color key="titleColor" red="0.00018719175115100684" green="0.97367788461538463" blue="0.55897141453697696" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
@@ -134,7 +137,14 @@
                             <constraint firstItem="wuY-3g-Y24" firstAttribute="top" secondItem="uyY-QM-EWe" secondAttribute="top" id="aee-fQ-t9r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Alarms" id="PZ7-mw-7FO"/>
+                    <navigationItem key="navigationItem" title="Alarms" id="PZ7-mw-7FO">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="lkW-Md-7y6">
+                            <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="7IO-fT-l15" kind="show" id="b4k-If-q7q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6E-m7-i5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,9 +155,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hKz-aM-K95" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="80G-4U-Ze8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="80G-4U-Ze8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -158,5 +171,28 @@
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="29.23538230884558"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="vbJ-Ot-ZZX">
+            <objects>
+                <viewController id="7IO-fT-l15" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xOD-pM-lZn"/>
+                        <viewControllerLayoutGuide type="bottom" id="KRS-dv-Nhh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SFe-ZV-sEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="p8h-p7-EiM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcI-WZ-Uzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799" y="30"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gxx-iN-aDv"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

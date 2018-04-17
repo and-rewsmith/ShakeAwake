@@ -99,5 +99,98 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwipeAwake/shakeHandler.swift"
+            timestampString = "545626244.872804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ShakeViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.ShakeViewController.__deallocating_deinit"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/CS4720/SwipeAwake/SwipeAwake/shakeHandler.swift"
+                  timestampString = "545627337.051196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.ShakeViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SwipeAwake.ShakeViewController"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/CS4720/SwipeAwake/SwipeAwake/shakeHandler.swift"
+                  timestampString = "545627337.054329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.ShakeViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SwipeAwake.ShakeViewController"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/CS4720/SwipeAwake/SwipeAwake/shakeHandler.swift"
+                  timestampString = "545627337.057142"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.ShakeViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SwipeAwake.ShakeViewController&gt;"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/CS4720/SwipeAwake/SwipeAwake/shakeHandler.swift"
+                  timestampString = "545627337.059952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.ShakeViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SwipeAwake.ShakeViewController&gt;"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/CS4720/SwipeAwake/SwipeAwake/shakeHandler.swift"
+                  timestampString = "545627337.063105"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

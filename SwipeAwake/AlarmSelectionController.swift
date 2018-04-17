@@ -11,6 +11,9 @@ import UIKit
 class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var alarmView: UITableView!
+    
+    
     //Ignore weak warning for now. It will mutate.
     //TODO: Get user from login segue
     var alarmsHandler = AlarmsHandler(user: "TestUser",interval: 15)
