@@ -21,15 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Il-jxA">
-                                <rect key="frame" x="133" y="371" width="109" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Log In"/>
-                                <connections>
-                                    <segue destination="hKz-aM-K95" kind="show" id="gxx-iN-aDv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-C0-0Es">
                                 <rect key="frame" x="164" y="477" width="47" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,18 +48,24 @@
                                 <rect key="frame" x="56" y="186" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFy-aP-G9w">
                                 <rect key="frame" x="56" y="285" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Il-jxA">
+                                <rect key="frame" x="148" y="393" width="78" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Log In"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -78,7 +75,7 @@
         <!--Alarms-->
         <scene sceneID="JIX-s3-hnS">
             <objects>
-                <viewController id="Vey-3l-CYN" customClass="AlarmSelectionController" customModule="SwipeAwake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vey-3l-CYN" customClass="AlarmSelectionController" customModule="SwipeAwake" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vjv-bc-Vhd"/>
                         <viewControllerLayoutGuide type="bottom" id="i5o-pX-sSY"/>
@@ -119,13 +116,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="setButton" destination="Kkl-Fn-2Tg" id="JPg-Ud-YXq"/>
                                             <outlet property="time" destination="w1J-KL-e7T" id="EkI-dT-Fht"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Vey-3l-CYN" id="rKO-N8-B3W"/>
-                                    <outlet property="delegate" destination="Vey-3l-CYN" id="9Nz-9i-Cgw"/>
+                                    <outlet property="dataSource" destination="Vey-3l-CYN" id="wN7-qw-sP6"/>
+                                    <outlet property="delegate" destination="Vey-3l-CYN" id="e4s-2s-vLA"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -141,10 +139,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="lkW-Md-7y6">
                             <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="7IO-fT-l15" kind="show" id="b4k-If-q7q"/>
+                                <segue destination="jzC-ID-aTw" kind="presentation" id="b4k-If-q7q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alarmTableView" destination="wuY-3g-Y24" id="8Hq-Yb-cFK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6E-m7-i5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,7 +156,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hKz-aM-K95" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="80G-4U-Ze8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="80G-4U-Ze8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -174,7 +175,7 @@
         <!--Settings-->
         <scene sceneID="vbJ-Ot-ZZX">
             <objects>
-                <viewController id="7IO-fT-l15" sceneMemberID="viewController">
+                <viewController id="7IO-fT-l15" customClass="SettingsController" customModule="SwipeAwake" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xOD-pM-lZn"/>
                         <viewControllerLayoutGuide type="bottom" id="KRS-dv-Nhh"/>
@@ -182,17 +183,72 @@
                     <view key="view" contentMode="scaleToFill" id="SFe-ZV-sEJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Ringtone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-UO-i3O">
+                                <rect key="frame" x="16" y="111" width="198" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INP-Pb-fik">
+                                <rect key="frame" x="55" y="153" width="260" height="151"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selection Interval:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vh-63-DF6">
+                                <rect key="frame" x="16" y="362" width="198" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLb-g9-yhn">
+                                <rect key="frame" x="55" y="404" width="260" height="151"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="p8h-p7-EiM"/>
+                    <navigationItem key="navigationItem" title="Settings" id="p8h-p7-EiM">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="uwR-P9-vBy">
+                            <connections>
+                                <action selector="cancel:" destination="7IO-fT-l15" id="RiD-Z8-1Xw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="8Wt-7P-D26">
+                            <connections>
+                                <segue destination="Siz-7L-LXS" kind="unwind" unwindAction="unwindToAlarmSelectionWithSender:" id="i5p-l6-Mmi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="intervalPicker" destination="rLb-g9-yhn" id="UT2-p7-vpm"/>
+                        <outlet property="soundPicker" destination="INP-Pb-fik" id="Kfy-8z-CKN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcI-WZ-Uzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Siz-7L-LXS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="30"/>
+            <point key="canvasLocation" x="3673" y="-376"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H0o-AN-qAb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jzC-ID-aTw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xa4-KH-5Jl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7IO-fT-l15" kind="relationship" relationship="rootViewController" id="uG1-mi-7bN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Az7-Fh-cdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2825" y="-376"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="gxx-iN-aDv"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

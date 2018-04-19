@@ -45,7 +45,7 @@ func populateTimes(interval: Int)->[String] {
             minute = minute % 60
         }
     }
-    
+    print(times)
     return times
 }
 

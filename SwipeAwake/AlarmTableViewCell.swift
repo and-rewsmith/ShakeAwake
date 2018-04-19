@@ -13,6 +13,8 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var time: UILabel!
     
+    @IBOutlet weak var setButton: UIButton!
+    
     func setFields(alarm: Alarm) {
         time.text = alarm.time
     }
