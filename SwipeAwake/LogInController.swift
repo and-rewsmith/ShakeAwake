@@ -14,10 +14,17 @@ class LogInController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let navVC = segue.destination as! UINavigationController
-        let destinationVC = navVC.topViewController as! AlarmSelectionController
+        if segue.identifier == "Register" {
+            
+        }
         
-        destinationVC.alarmsHandler = AlarmsHandler(user: "test", interval: 5)
+        if segue.identifier == "AlarmSelection" {
+            let navVC = segue.destination as! UINavigationController
+            let destinationVC = navVC.topViewController as! AlarmSelectionController
+            
+            destinationVC.alarmsHandler = AlarmsHandler(user: "test", interval: 5)
+        }
+
         
     }
     

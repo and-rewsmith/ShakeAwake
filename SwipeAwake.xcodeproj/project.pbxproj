@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D0DDA87208442BA00B729AC /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DDA86208442BA00B729AC /* LogInController.swift */; };
+		4E2447BB208959A500445268 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2447BA208959A500445268 /* SignupController.swift */; };
 		4E264AFF2084377C00AB610D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264AFE2084377C00AB610D /* AppDelegate.swift */; };
 		4E264B012084377C00AB610D /* AlarmSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264B002084377C00AB610D /* AlarmSelectionController.swift */; };
 		4E264B042084377C00AB610D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B022084377C00AB610D /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		3D0DDA822084405700B729AC /* AlarmClock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AlarmClock.png; path = SwipeAwake/AlarmClock.png; sourceTree = "<group>"; };
 		3D0DDA842084410100B729AC /* AlarmClock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlarmClock.png; sourceTree = "<group>"; };
 		3D0DDA86208442BA00B729AC /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		4E2447BA208959A500445268 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		4E264AFB2084377C00AB610D /* SwipeAwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeAwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E264AFE2084377C00AB610D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E264B002084377C00AB610D /* AlarmSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSelectionController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				4E44B75E2085498300067F35 /* Alarm.swift */,
 				4E44B764208595BB00067F35 /* shakeHandler.swift */,
 				4E9D07E6208846CB00F4B1BA /* SettingsController.swift */,
+				4E2447BA208959A500445268 /* SignupController.swift */,
 			);
 			path = SwipeAwake;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				4E264B012084377C00AB610D /* AlarmSelectionController.swift in Sources */,
 				3D0DDA87208442BA00B729AC /* LogInController.swift in Sources */,
 				4E264AFF2084377C00AB610D /* AppDelegate.swift in Sources */,
+				4E2447BB208959A500445268 /* SignupController.swift in Sources */,
 				4E44B75F2085498300067F35 /* Alarm.swift in Sources */,
 				4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */,
 			);
