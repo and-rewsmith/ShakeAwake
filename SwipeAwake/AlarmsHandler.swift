@@ -66,7 +66,8 @@ class AlarmsHandler {
         for t in times {
             
             let userRef = self.ref.child(self.user)
-            userRef.observe(.value, with: { (snapshot) in
+            let timesRef = userRef.child("times")
+            timesRef.observe(.value, with: { (snapshot) in
                 
                 if snapshot.hasChild(t) {
                     
@@ -104,7 +105,8 @@ class AlarmsHandler {
     //PUT to endpoint
     func turnOnAlarm(alarm: Alarm) {
         let userRef = self.ref.child(self.user)
-        let timeRef = userRef.child(alarm.time)
+        let timesRef = userRef.child("times")
+        let timeRef = timesRef.child(alarm.time)
         timeRef.setValue(["status": alarm.isSet]) //If the model changes this must update.
         
         
@@ -113,7 +115,8 @@ class AlarmsHandler {
     //DEL from endpoint
     func turnOffAlarm(alarm: Alarm) {
         let userRef = self.ref.child(self.user)
-        let timeRef = userRef.child(alarm.time)
+        let timesRef = userRef.child("times")
+        let timeRef = timesRef.child(alarm.time)
         timeRef.removeValue()
     }
     
