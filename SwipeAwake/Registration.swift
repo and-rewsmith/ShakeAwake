@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class RegistrationController: UIViewController {
     
@@ -17,20 +19,13 @@ class RegistrationController: UIViewController {
     
     var username: String?
     var password: String?
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.username = userEntry?.text
-        self.password = passEntry1?.text
+    var ref: DatabaseReference?
+
+    @IBAction func register(_ sender: Any) {
         
-    }
-    
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if (userEntry?.text == "" || passEntry1?.text == "" || passEntry2?.text == "") {
+        self.userEntry.text = self.userEntry.text?.lowercased()
+        
+        if (self.userEntry?.text == "" || self.passEntry1?.text == "" || self.passEntry2?.text == "") {
             
             let alert = UIAlertController(title: "You need to enter all fields.", message: "", preferredStyle: .alert)
             
@@ -38,20 +33,58 @@ class RegistrationController: UIViewController {
             
             self.present(alert, animated: true)
             
-            return false
         }
-        else if (passEntry1?.text != passEntry2?.text) {
+        else if (self.passEntry1?.text != self.passEntry2?.text) {
             let alert = UIAlertController(title: "Passwords do not match.", message: "", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             
             self.present(alert, animated: true)
             
-            return false
         }
         else {
-            return true
+            
+            isUsernameTaken(candidate: self.userEntry.text!, completionHandler2: { (out: Bool) in
+                if out {
+                    self.performSegue(withIdentifier: "backupToLogin2", sender: sender)
+                }
+                else {
+                    let alert = UIAlertController(title: "Username taken.", message: "", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                    
+                }
+            })
+            
+            
         }
+        
+        
+        
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.username = self.userEntry?.text
+        self.password = MD5((self.passEntry1?.text)!)
+    }
+    
+    func isUsernameTaken(candidate: String, completionHandler2: @escaping (Bool)->()) {
+        
+        self.ref?.observe(.value, with: { (snapshot) in
+            if snapshot.hasChild(candidate) {
+                completionHandler2(false)
+            }
+            else {
+                completionHandler2(true)    
+            }
+        })
+        
     }
     
     //Calls this function when the tap is recognized.
@@ -69,12 +102,8 @@ class RegistrationController: UIViewController {
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        
-        
-        //        //TESTING BELOW - COMMENT OUT WHEN YOU WANT
-        //        let alarmsHandler = AlarmsHandler(user: "TestUser", interval: 15)
-        //        let alarm1 = Alarm(time: "02:30", isSet: true)
-        //        alarmsHandler.turnOnAlarm(alarm: alarm1)
+        ref = Database.database().reference()
+
         
     }
     

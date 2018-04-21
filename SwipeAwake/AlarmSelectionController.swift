@@ -18,10 +18,32 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     var alarmsHandler: AlarmsHandler?
     
+    @IBAction func signOut(_ sender: Any) {
+        let confirmationAlert = UIAlertController(title: "Sign Out?", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
+               self.performSegue(withIdentifier: "backupToLogin", sender: sender)
+        }))
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        
+        self.present(confirmationAlert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval {
             self.alarmsHandler = AlarmsHandler(user: "TestUser", interval: source_interval)
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return true
     }
     
 

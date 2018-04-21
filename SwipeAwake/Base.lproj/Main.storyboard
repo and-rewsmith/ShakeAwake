@@ -54,6 +54,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hFU-qa-4jo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk6-QP-VTH">
                                 <rect key="frame" x="137" y="395" width="101" height="30"/>
@@ -61,7 +64,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="SYU-de-3VC" kind="presentation" id="2ht-MY-7Vh"/>
+                                    <segue destination="SYU-de-3VC" kind="presentation" identifier="Registration" id="2ht-MY-7Vh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYY-9K-pp9">
@@ -70,14 +73,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="hKz-aM-K95" kind="presentation" identifier="AlarmSelection" id="7tc-vy-shK"/>
+                                    <segue destination="hKz-aM-K95" kind="presentation" identifier="Skip" id="7tc-vy-shK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="userEntry" destination="97A-ek-98P" id="OHh-y0-yay"/>
+                        <outlet property="passEntry" destination="OGx-uI-yUY" id="sTx-ae-pq2"/>
+                        <outlet property="userEntry" destination="97A-ek-98P" id="u8N-aY-Mcm"/>
+                        <segue destination="hKz-aM-K95" kind="presentation" identifier="Login" id="qPK-0L-APm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,6 +153,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Alarms" id="PZ7-mw-7FO">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="jh0-Ie-Yic">
+                            <connections>
+                                <action selector="signOut:" destination="Vey-3l-CYN" id="cDo-Gv-UyU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="lkW-Md-7y6">
                             <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -157,9 +167,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="alarmTableView" destination="wuY-3g-Y24" id="8Hq-Yb-cFK"/>
+                        <segue destination="qRC-EG-WU8" kind="unwind" identifier="backupToLogin" unwindAction="unwindToLoginWithSender:" id="cLi-bW-QHi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6E-m7-i5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qRC-EG-WU8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1844" y="29.23538230884558"/>
         </scene>
@@ -326,7 +338,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create" id="gYm-9P-8DU">
                             <connections>
-                                <segue destination="Kf4-tE-4T0" kind="unwind" unwindAction="unwindToLoginWithSender:" id="ATX-0x-X1m"/>
+                                <action selector="register:" destination="2Ca-mZ-66j" id="jBc-za-mqC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -334,6 +346,7 @@
                         <outlet property="passEntry1" destination="P31-ex-GpE" id="mgU-si-6VL"/>
                         <outlet property="passEntry2" destination="Gpa-LR-CCW" id="kbz-iZ-VSW"/>
                         <outlet property="userEntry" destination="T39-zc-cq8" id="Qhg-ct-EwJ"/>
+                        <segue destination="Kf4-tE-4T0" kind="unwind" identifier="backupToLogin2" unwindAction="unwindToLoginWithSender:" id="q6A-9m-ybh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAe-Jj-x6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,5 +373,8 @@
             <point key="canvasLocation" x="25" y="922"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7tc-vy-shK"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

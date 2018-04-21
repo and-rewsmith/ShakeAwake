@@ -21,6 +21,7 @@
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
 		4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B764208595BB00067F35 /* shakeHandler.swift */; };
 		4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D07E6208846CB00F4B1BA /* SettingsController.swift */; };
+		4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC0D8E208AB45C0063E677 /* Utility.swift */; };
 		CF33C60FB5F4B4B134C1A249 /* Pods_SwipeAwake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103B67F6610857635852D880 /* Pods_SwipeAwake.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		4E44B75E2085498300067F35 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		4E44B764208595BB00067F35 /* shakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeHandler.swift; sourceTree = "<group>"; };
 		4E9D07E6208846CB00F4B1BA /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		4ECC0D8B208A93E40063E677 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		4ECC0D8E208AB45C0063E677 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		5C3215489B44DF2DA2CA4F5A /* Pods-SwipeAwake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.release.xcconfig"; sourceTree = "<group>"; };
 		D95189A207CED9DC182C6016 /* Pods-SwipeAwake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +107,8 @@
 				4E44B764208595BB00067F35 /* shakeHandler.swift */,
 				4E9D07E6208846CB00F4B1BA /* SettingsController.swift */,
 				4E2447BA208959A500445268 /* Registration.swift */,
+				4ECC0D8B208A93E40063E677 /* Bridging-Header.h */,
+				4ECC0D8E208AB45C0063E677 /* Utility.swift */,
 			);
 			path = SwipeAwake;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */,
 				4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */,
 				4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */,
 				4E264B12208465FA00AB610D /* AlarmsHandler.swift in Sources */,
@@ -391,6 +397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = als5ev.SwipeAwake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwipeAwake/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -406,6 +413,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = als5ev.SwipeAwake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwipeAwake/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
