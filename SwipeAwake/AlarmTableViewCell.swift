@@ -11,6 +11,14 @@ import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
     
+    var onButtonTapped : (() -> Void)? = nil
+    
+    @IBAction func toggleAlarm(_ sender: Any) {
+        if let onButtonTapped = self.onButtonTapped {
+            onButtonTapped()
+        }
+    }
+
     @IBOutlet weak var time: UILabel!
     
     @IBOutlet weak var setButton: UIButton!

@@ -57,6 +57,9 @@ class AlarmsHandler {
     var alarms: [Alarm]
     
     init(user: String, interval: Int) {
+        
+        alarms = [Alarm]()
+        
         self.user = user
         self.alarms = [Alarm]()
         
@@ -104,6 +107,8 @@ class AlarmsHandler {
     
     //PUT to endpoint
     func turnOnAlarm(alarm: Alarm) {
+        print("in turn on alarm")
+        alarm.isSet = true
         let userRef = self.ref.child(self.user)
         let timesRef = userRef.child("times")
         let timeRef = timesRef.child(alarm.time)
@@ -114,6 +119,8 @@ class AlarmsHandler {
     
     //DEL from endpoint
     func turnOffAlarm(alarm: Alarm) {
+        alarm.isSet = false
+        print("in turn off alarm")
         let userRef = self.ref.child(self.user)
         let timesRef = userRef.child("times")
         let timeRef = timesRef.child(alarm.time)

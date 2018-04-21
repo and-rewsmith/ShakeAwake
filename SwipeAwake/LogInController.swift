@@ -76,6 +76,9 @@ class LogInController: UIViewController {
                     }
                 }
                 else {
+                    let alert = UIAlertController(title: "Username is not in our system", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                     completionHandler(false)
                 }
             }) { (error) in

@@ -55,9 +55,37 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        print(self.alarmsHandler?.alarms.count)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AlarmTableViewCell
         
-        cell.setFields(alarm: (self.alarmsHandler?.alarms[indexPath.row])!)
+        let alarm = self.alarmsHandler?.alarms[indexPath.row]
+        
+        cell.setFields(alarm: alarm!)
+        
+        cell.onButtonTapped = {
+            if (alarm?.isSet)! {
+                print("turning off")
+                self.alarmsHandler?.turnOffAlarm(alarm: alarm!)
+            }
+            else {
+                print("turning on")
+                self.alarmsHandler?.turnOnAlarm(alarm: alarm!)
+            }
+            
+            print(self.alarmsHandler?.alarms.count)
+            
+            //self.alarmTableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            tableView.reloadData()
+        }
+        
+        if (alarm?.isSet)! {
+            cell.setButton.backgroundColor = UIColor(red: 45/255, green: 252/255, blue: 173/255, alpha: 1)
+        }
+        else {
+            cell.setButton.backgroundColor = UIColor.gray
+        }
         
         return(cell)
     }
