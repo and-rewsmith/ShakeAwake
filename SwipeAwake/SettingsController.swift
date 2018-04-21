@@ -20,12 +20,13 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var interval: Int?
     var sound: String?
+    var username: String?
     
     
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        interval = intervals[intervalPicker.selectedRow(inComponent: 0)]
-        sound = sounds[soundPicker.selectedRow(inComponent: 0)]
+        self.interval = intervals[intervalPicker.selectedRow(inComponent: 0)]
+        self.sound = sounds[soundPicker.selectedRow(inComponent: 0)]
     }
     
     

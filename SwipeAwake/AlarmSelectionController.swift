@@ -17,6 +17,9 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var alarmTableView: UITableView!
     
     var alarmsHandler: AlarmsHandler?
+    var username: String?
+    var interval: Int?
+    
     
     @IBAction func signOut(_ sender: Any) {
         let confirmationAlert = UIAlertController(title: "Sign Out?", message: "Are you sure you want to sign out?", preferredStyle: .alert)
@@ -37,13 +40,30 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval {
-            self.alarmsHandler = AlarmsHandler(user: "TestUser", interval: source_interval)
+        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username {
+            print("IN UNWIND")
+            self.username = source_username
+            self.interval = source_interval
+            self.alarmsHandler = AlarmsHandler(user: self.username!, interval: self.interval!)
+            self.alarmTableView.reloadData()
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backupToSelection" {
+            let destinationVC = segue.destination as! AlarmSelectionController
+            destinationVC.username = self.username
+        }
+        if segue.identifier == "Settings" {
+            print("changing settings")
+            let navVC = segue.destination as! UINavigationController
+            let destinationVC = navVC.topViewController as! SettingsController
+            destinationVC.username = self.username
+        }
     }
     
 
@@ -56,15 +76,12 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print(self.alarmsHandler?.alarms.count)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AlarmTableViewCell
         
         let alarm = self.alarmsHandler?.alarms[indexPath.row]
         
-        cell.setFields(alarm: alarm!)
-        
         cell.onButtonTapped = {
+            print(self.alarmsHandler?.alarms.count)
             if (alarm?.isSet)! {
                 print("turning off")
                 self.alarmsHandler?.turnOffAlarm(alarm: alarm!)
@@ -74,10 +91,21 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 self.alarmsHandler?.turnOnAlarm(alarm: alarm!)
             }
             
-            print(self.alarmsHandler?.alarms.count)
             
+            
+            print(self.alarmsHandler?.alarms.count)
             //self.alarmTableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            tableView.reloadData()
+            
+            
+            let cutoff = 24*60/self.interval!
+            if let tmp = self.alarmsHandler?.alarms[0..<cutoff] {
+                let dummy: [Alarm] = Array(tmp)
+                self.alarmsHandler?.alarms = dummy
+            }
+            print(self.alarmsHandler?.alarms.count)
+
+
+            self.alarmTableView.reloadData()
         }
         
         if (alarm?.isSet)! {
@@ -86,6 +114,9 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         else {
             cell.setButton.backgroundColor = UIColor.gray
         }
+        
+        cell.setFields(alarm: alarm!)
+        
         
         return(cell)
     }
@@ -102,6 +133,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         self.alarmTableView.reloadData()
+        self.alarmTableView.allowsSelection = false;
     }
 
     override func didReceiveMemoryWarning() {

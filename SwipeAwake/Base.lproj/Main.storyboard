@@ -164,7 +164,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="lkW-Md-7y6">
                             <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="jzC-ID-aTw" kind="presentation" id="b4k-If-q7q"/>
+                                <segue destination="jzC-ID-aTw" kind="presentation" identifier="Settings" id="b4k-If-q7q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -244,7 +244,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="8Wt-7P-D26">
                             <connections>
-                                <segue destination="Siz-7L-LXS" kind="unwind" unwindAction="unwindToAlarmSelectionWithSender:" id="i5p-l6-Mmi"/>
+                                <segue destination="Siz-7L-LXS" kind="unwind" identifier="backupToSelection" unwindAction="unwindToAlarmSelectionWithSender:" id="i5p-l6-Mmi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -377,7 +377,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7tc-vy-shK"/>
+        <segue reference="qPK-0L-APm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.00018719175120000001" green="0.97367788460000004" blue="0.55897141449999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

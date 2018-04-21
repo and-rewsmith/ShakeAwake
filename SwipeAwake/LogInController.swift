@@ -99,12 +99,16 @@ class LogInController: UIViewController {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.alarmsHandler = AlarmsHandler(user: self.userEntry.text!, interval: 5)
+            destinationVC.username = self.userEntry.text!
+            destinationVC.interval = 5
         }
         
         if segue.identifier == "Skip" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.alarmsHandler = AlarmsHandler(user: "xzhfbqjwejzakl", interval: 5)
+            destinationVC.username = "xzhfbqjwejzakl"
+            destinationVC.interval = 5
         }
     }
     
