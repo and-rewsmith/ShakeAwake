@@ -128,9 +128,6 @@
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.00018719175115100684" green="0.97367788461538463" blue="0.55897141453697696" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="toggleAlarm:" destination="eBu-Sg-YfN" eventType="touchUpInside" id="rO9-7Q-LJF"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -138,6 +135,7 @@
                                         <connections>
                                             <outlet property="setButton" destination="Kkl-Fn-2Tg" id="JPg-Ud-YXq"/>
                                             <outlet property="time" destination="w1J-KL-e7T" id="EkI-dT-Fht"/>
+                                            <outlet property="toggleButton" destination="Kkl-Fn-2Tg" id="89h-ri-uPc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

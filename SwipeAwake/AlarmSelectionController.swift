@@ -104,8 +104,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             }
             print(self.alarmsHandler?.alarms.count)
 
-
-            self.alarmTableView.reloadData()
+            self.alarmTableView.reloadRows(at: [indexPath], with: .automatic)
+            //self.alarmTableView.reloadData()
         }
         
         if (alarm?.isSet)! {
@@ -134,6 +134,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidAppear(_ animated: Bool) {
         self.alarmTableView.reloadData()
         self.alarmTableView.allowsSelection = false;
+        self.alarmTableView.isScrollEnabled = false;
+
     }
 
     override func didReceiveMemoryWarning() {
