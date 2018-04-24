@@ -23,10 +23,16 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var time: UILabel!
     
-    @IBOutlet weak var setButton: UIButton!
-    
     func setFields(alarm: Alarm) {
         time.text = alarm.time
+        
+        if alarm.isSet {
+            toggleButton.backgroundColor = UIColor(red: 45/255, green: 252/255, blue: 173/255, alpha: 1)
+        }
+        else {
+            toggleButton.backgroundColor = UIColor.gray
+        }
+        
         toggleButton.addTarget(self, action: #selector (toggleAlarm), for: UIControlEvents.touchDown)
     }
 }

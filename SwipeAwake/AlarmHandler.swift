@@ -50,13 +50,14 @@ func populateTimes(interval: Int)->[String] {
 }
 
 
-class AlarmsHandler {
+class AlarmHandler {
     
     var ref = Database.database().reference()
     let user: String
     var alarms: [Alarm]
     
-    init(user: String, interval: Int) {
+    
+    init(user: String, interval: Int, completionHandler: @escaping (Void)->Void) {
         
         alarms = [Alarm]()
         
@@ -64,8 +65,7 @@ class AlarmsHandler {
         self.alarms = [Alarm]()
         
         let times = populateTimes(interval: interval)
-        
-        //populate alarms prioritizing what's in firebase
+                
         for t in times {
             
             let userRef = self.ref.child(self.user)
@@ -95,12 +95,16 @@ class AlarmsHandler {
                     self.alarms.append(alarm)
                 }
                 
+                if 24*60/interval == self.alarms.count {
+                    completionHandler()
+                }
+
+                
             }) { (error) in
                 print(error.localizedDescription)
             }
-
+            
         }
-        
         
     }
     

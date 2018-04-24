@@ -22,6 +22,19 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     var sound: String?
     var username: String?
     
+    @IBAction func saveSettings(_ sender: Any) {
+        let confirmationAlert = UIAlertController(title: "Save Settings?", message: "Alarms not in the selected interval will no longer be active.", preferredStyle: .alert)
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "backupToSelection", sender: sender)
+        }))
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        
+        self.present(confirmationAlert, animated: true, completion: nil)
+    }
+    
     
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,11 +103,21 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
         super.viewDidLoad()
         //view.backgroundColor = UIColorFromHex(rgbValue:0x795791, alpha: 1)
         // Do any additional setup after loading the view, typically from a nib.
-        intervalPicker.delegate = self
-        intervalPicker.dataSource = self
+        self.intervalPicker.delegate = self
+        self.intervalPicker.dataSource = self
         
-        soundPicker.delegate = self
-        soundPicker.dataSource = self
+        self.soundPicker.delegate = self
+        self.soundPicker.dataSource = self
+        
+        var index = 0
+        for entry in self.intervals {
+            if entry == self.interval {
+                break
+            }
+            index += 1
+        }
+        
+        self.intervalPicker.selectRow(index, inComponent: 0, animated: true)
         
     }
     

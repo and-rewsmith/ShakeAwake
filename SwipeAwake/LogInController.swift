@@ -98,7 +98,6 @@ class LogInController: UIViewController {
         if segue.identifier == "Login" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
-            destinationVC.alarmsHandler = AlarmsHandler(user: self.userEntry.text!, interval: 5)
             destinationVC.username = self.userEntry.text!
             destinationVC.interval = 5
         }
@@ -106,7 +105,6 @@ class LogInController: UIViewController {
         if segue.identifier == "Skip" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
-            destinationVC.alarmsHandler = AlarmsHandler(user: "xzhfbqjwejzakl", interval: 5)
             destinationVC.username = "xzhfbqjwejzakl"
             destinationVC.interval = 5
         }
@@ -137,6 +135,12 @@ class LogInController: UIViewController {
         
         
         ref = Database.database().reference()
+        
+//        let ah = AlarmsHandler(user:"test", interval: 15)
+//        print(ah.alarms.count)
+//        let alarm = ah.alarms[0]
+//        ah.turnOnAlarm(alarm: alarm)
+//        print(ah.alarms.count)
         
     }
     

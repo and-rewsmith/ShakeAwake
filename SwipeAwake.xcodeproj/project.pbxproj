@@ -15,13 +15,14 @@
 		4E264B062084377C00AB610D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B052084377C00AB610D /* Assets.xcassets */; };
 		4E264B092084377C00AB610D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B072084377C00AB610D /* LaunchScreen.storyboard */; };
 		4E264B102084655100AB610D /* AlarmClock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0DDA822084405700B729AC /* AlarmClock.png */; };
-		4E264B12208465FA00AB610D /* AlarmsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264B11208465FA00AB610D /* AlarmsHandler.swift */; };
-		4E264B1620848AF600AB610D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B1520848AF600AB610D /* GoogleService-Info.plist */; };
+		4E264B12208465FA00AB610D /* AlarmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264B11208465FA00AB610D /* AlarmHandler.swift */; };
 		4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */; };
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
 		4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B764208595BB00067F35 /* shakeHandler.swift */; };
+		4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C67208EAB460035FC01 /* GoogleService-Info.plist */; };
 		4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D07E6208846CB00F4B1BA /* SettingsController.swift */; };
 		4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC0D8E208AB45C0063E677 /* Utility.swift */; };
+		4ECC0D91208D11120063E677 /* bts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC0D90208D11110063E677 /* bts.mp3 */; };
 		CF33C60FB5F4B4B134C1A249 /* Pods_SwipeAwake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103B67F6610857635852D880 /* Pods_SwipeAwake.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,14 +39,15 @@
 		4E264B052084377C00AB610D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E264B082084377C00AB610D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E264B0A2084377C00AB610D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E264B11208465FA00AB610D /* AlarmsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsHandler.swift; sourceTree = "<group>"; };
-		4E264B1520848AF600AB610D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E264B11208465FA00AB610D /* AlarmHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmHandler.swift; sourceTree = "<group>"; };
 		4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		4E44B75E2085498300067F35 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		4E44B764208595BB00067F35 /* shakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeHandler.swift; sourceTree = "<group>"; };
+		4E600C67208EAB460035FC01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E9D07E6208846CB00F4B1BA /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		4ECC0D8B208A93E40063E677 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4ECC0D8E208AB45C0063E677 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		4ECC0D90208D11110063E677 /* bts.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bts.mp3; path = ../../../Downloads/bts.mp3; sourceTree = "<group>"; };
 		5C3215489B44DF2DA2CA4F5A /* Pods-SwipeAwake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.release.xcconfig"; sourceTree = "<group>"; };
 		D95189A207CED9DC182C6016 /* Pods-SwipeAwake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeAwake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeAwake/Pods-SwipeAwake.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +94,8 @@
 		4E264AFD2084377C00AB610D /* SwipeAwake */ = {
 			isa = PBXGroup;
 			children = (
-				4E264B1520848AF600AB610D /* GoogleService-Info.plist */,
+				4E600C67208EAB460035FC01 /* GoogleService-Info.plist */,
+				4ECC0D90208D11110063E677 /* bts.mp3 */,
 				4E264AFE2084377C00AB610D /* AppDelegate.swift */,
 				3D0DDA842084410100B729AC /* AlarmClock.png */,
 				4E264B002084377C00AB610D /* AlarmSelectionController.swift */,
@@ -101,7 +104,7 @@
 				4E264B072084377C00AB610D /* LaunchScreen.storyboard */,
 				4E264B0A2084377C00AB610D /* Info.plist */,
 				3D0DDA86208442BA00B729AC /* LogInController.swift */,
-				4E264B11208465FA00AB610D /* AlarmsHandler.swift */,
+				4E264B11208465FA00AB610D /* AlarmHandler.swift */,
 				4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */,
 				4E44B75E2085498300067F35 /* Alarm.swift */,
 				4E44B764208595BB00067F35 /* shakeHandler.swift */,
@@ -185,11 +188,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E264B1620848AF600AB610D /* GoogleService-Info.plist in Resources */,
 				4E264B102084655100AB610D /* AlarmClock.png in Resources */,
 				4E264B092084377C00AB610D /* LaunchScreen.storyboard in Resources */,
 				4E264B062084377C00AB610D /* Assets.xcassets in Resources */,
 				4E264B042084377C00AB610D /* Main.storyboard in Resources */,
+				4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */,
+				4ECC0D91208D11120063E677 /* bts.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +265,7 @@
 				4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */,
 				4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */,
 				4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */,
-				4E264B12208465FA00AB610D /* AlarmsHandler.swift in Sources */,
+				4E264B12208465FA00AB610D /* AlarmHandler.swift in Sources */,
 				4E264B012084377C00AB610D /* AlarmSelectionController.swift in Sources */,
 				3D0DDA87208442BA00B729AC /* LogInController.swift in Sources */,
 				4E264AFF2084377C00AB610D /* AppDelegate.swift in Sources */,
