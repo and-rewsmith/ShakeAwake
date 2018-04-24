@@ -16,7 +16,7 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var intervalPicker: UIPickerView!
     
     let intervals = [1, 2, 3, 4, 5, 10, 15]
-    let sounds = ["By the Seaside", "Sound 2"]
+    let sounds = ["By the Seaside"]
     
     var interval: Int?
     var sound: String?
@@ -116,8 +116,16 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
             }
             index += 1
         }
-        
         self.intervalPicker.selectRow(index, inComponent: 0, animated: true)
+        
+        index = 0
+        for entry in self.sounds {
+            if entry == self.sound {
+                break
+            }
+            index += 1
+        }
+        self.soundPicker.selectRow(index, inComponent: 0, animated: true)
         
     }
     

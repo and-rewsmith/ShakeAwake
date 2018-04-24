@@ -19,7 +19,9 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     var alarmHandler: AlarmHandler?
     var username: String?
+    var sound: String?
     var interval: Int?
+    var sounds = ["By the Seaside" : "bts.mp3"]
     
     var player: AVAudioPlayer?
     
@@ -50,13 +52,14 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username {
+        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound {
             print(source_interval)
             self.username = source_username
             self.interval = source_interval
             self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
                 self.alarmTableView.reloadData()
             })
+            self.sound = source_sound
         }
     }
     
@@ -74,6 +77,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             let destinationVC = navVC.topViewController as! SettingsController
             destinationVC.username = self.username
             destinationVC.interval = self.interval
+            destinationVC.sound = self.sound
             for time in self.timers.keys {
                 self.timers[time]?.invalidate()
                 self.timers[time] = nil
@@ -135,8 +139,10 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             catch let error as NSError {
                 print("audioSession error: \(error.localizedDescription)")
             }
+            
+            let resource = self.sounds[sound!]
 
-            let path = Bundle.main.path(forResource: "bts.mp3", ofType: nil)!
+            let path = Bundle.main.path(forResource: resource, ofType: nil)!
             
             let url = URL(fileURLWithPath: path)
             

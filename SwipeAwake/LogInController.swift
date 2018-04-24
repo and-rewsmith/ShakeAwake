@@ -100,6 +100,7 @@ class LogInController: UIViewController {
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.username = self.userEntry.text!
             destinationVC.interval = 5
+            destinationVC.sound = "By the Seaside"
         }
         
         if segue.identifier == "Skip" {
@@ -107,6 +108,7 @@ class LogInController: UIViewController {
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.username = "xzhfbqjwejzakl"
             destinationVC.interval = 5
+            destinationVC.sound = "By the Seaside"
         }
     }
     
