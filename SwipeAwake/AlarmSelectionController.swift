@@ -11,10 +11,6 @@ import AVFoundation
 
 class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    //var user: String?
-    //var sound: String?
-    
     @IBOutlet weak var alarmTableView: UITableView!
     
     var alarmHandler: AlarmHandler?
@@ -22,9 +18,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var sound: String?
     var interval: Int?
     var sounds = ["By the Seaside" : "bts.mp3"]
-    
     var player: AVAudioPlayer?
-    
     var timers: [String: Timer] = [String: Timer]()
     
     
@@ -47,10 +41,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
-    
-    
-    
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound {
             print(source_interval)
@@ -63,9 +53,11 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return true
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backupToSelection" {
@@ -90,6 +82,53 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         return alarmHandler!.alarms.count
     }
     
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AlarmTableViewCell
+        
+        let alarm = self.alarmHandler?.alarms[indexPath.row]
+        
+        
+        cell.onButtonTapped = {
+            
+            print(alarm?.isSet)
+            
+            if (alarm?.isSet)! {
+                print("turning off")
+                self.alarmHandler?.turnOffAlarm(alarm: alarm!)
+            }
+            else {
+                print("turning on")
+                self.alarmHandler?.turnOnAlarm(alarm: alarm!)
+            }
+            
+            print(alarm?.isSet)
+            
+            self.trimDatasource()
+
+            self.alarmTableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        if (alarm?.isSet)! {
+            var t = Timer()
+            t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: alarm, repeats: true)
+            
+            self.timers[(alarm?.time)!] = t
+        }
+        else {
+            self.timers[(alarm?.time)!]?.invalidate()
+            self.timers[(alarm?.time)!] = nil
+            self.timers.removeValue(forKey: (alarm?.time)!)
+        }
+        
+        cell.setFields(alarm: alarm!)
+        
+        
+        return(cell)
+    }
     
     
     func updateTimer(timer: Timer) {
@@ -141,7 +180,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             let resource = self.sounds[sound!]
-
+            
             let path = Bundle.main.path(forResource: resource, ofType: nil)!
             
             let url = URL(fileURLWithPath: path)
@@ -173,55 +212,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             self.alarmHandler?.alarms = dummy
         }
     }
-    
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AlarmTableViewCell
-        
-        let alarm = self.alarmHandler?.alarms[indexPath.row]
-        
-        
-        cell.onButtonTapped = {
-            
-            print(alarm?.isSet)
-            
-            if (alarm?.isSet)! {
-                print("turning off")
-                self.alarmHandler?.turnOffAlarm(alarm: alarm!)
-            }
-            else {
-                print("turning on")
-                self.alarmHandler?.turnOnAlarm(alarm: alarm!)
-            }
-            
-            print(alarm?.isSet)
-            
-            self.trimDatasource()
 
-            self.alarmTableView.reloadRows(at: [indexPath], with: .automatic)
-        }
-        
-        if (alarm?.isSet)! {
-            var t = Timer()
-            t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: alarm, repeats: true)
-            
-            self.timers[(alarm?.time)!] = t
-        }
-        else {
-            self.timers[(alarm?.time)!]?.invalidate()
-            self.timers[(alarm?.time)!] = nil
-            self.timers.removeValue(forKey: (alarm?.time)!)
-        }
-        
-        cell.setFields(alarm: alarm!)
-        
-        
-        return(cell)
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -230,31 +222,31 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
             self.alarmTableView.reloadData()
         })
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         //self.alarmTableView.reloadData()
-        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         //self.alarmTableView.reloadData()
         self.alarmTableView.allowsSelection = false;
-
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func refreshUI() {
         DispatchQueue.main.async(execute: {
             self.alarmTableView.reloadData()
         });
     }
-
 
 }
 

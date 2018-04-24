@@ -13,12 +13,11 @@ import FirebaseDatabase
 
 class LogInController: UIViewController {
     
-    var ref: DatabaseReference?
-
     @IBOutlet weak var passEntry: UITextField!
-    
     @IBOutlet weak var userEntry: UITextField!
     
+    var ref: DatabaseReference?
+
     
     @IBAction func login(_ sender: Any) {
         
@@ -30,6 +29,7 @@ class LogInController: UIViewController {
             }
         })
     }
+    
     
     @IBAction func unwindToLogin(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? RegistrationController, let username = sourceViewController.username, let password = sourceViewController.password {
@@ -45,6 +45,7 @@ class LogInController: UIViewController {
             self.passEntry.text = ""
         }
     }
+    
     
     func authenticate(completionHandler:@escaping  (Bool) -> Void) {
         
@@ -112,6 +113,7 @@ class LogInController: UIViewController {
         }
     }
     
+    
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -128,29 +130,14 @@ class LogInController: UIViewController {
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        
-        //TESTING BELOW - COMMENT OUT WHEN YOU WANT
-//        let alarmsHandler = AlarmsHandler(user: "TestUser", interval: 15)
-//        let alarm1 = Alarm(time: "02:30", isSet: true)
-//        alarmsHandler.turnOnAlarm(alarm: alarm1)
-        
-        
-        
         ref = Database.database().reference()
-        
-//        let ah = AlarmsHandler(user:"test", interval: 15)
-//        print(ah.alarms.count)
-//        let alarm = ah.alarms[0]
-//        ah.turnOnAlarm(alarm: alarm)
-//        print(ah.alarms.count)
-        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

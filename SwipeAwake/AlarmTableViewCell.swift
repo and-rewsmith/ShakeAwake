@@ -14,6 +14,8 @@ class AlarmTableViewCell: UITableViewCell {
     var onButtonTapped : (() -> Void)? = nil
 
     @IBOutlet weak var toggleButton: UIButton!
+    @IBOutlet weak var time: UILabel!
+    
     
     @IBAction func toggleAlarm(_ sender: Any) {
         if let onButtonTapped = self.onButtonTapped {
@@ -21,7 +23,6 @@ class AlarmTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var time: UILabel!
     
     func setFields(alarm: Alarm) {
         time.text = alarm.time
@@ -35,4 +36,5 @@ class AlarmTableViewCell: UITableViewCell {
         
         toggleButton.addTarget(self, action: #selector (toggleAlarm), for: UIControlEvents.touchDown)
     }
+    
 }

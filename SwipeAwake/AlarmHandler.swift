@@ -12,8 +12,8 @@ import FirebaseDatabase
 
 
 func populateTimes(interval: Int)->[String] {
-    var times = [String]()
     
+    var times = [String]()
     var hour = 0
     var minute = 0
     
@@ -117,9 +117,8 @@ class AlarmHandler {
         let timesRef = userRef.child("times")
         let timeRef = timesRef.child(alarm.time)
         timeRef.setValue(["status": alarm.isSet]) //If the model changes this must update.
-        
-        
     }
+    
     
     //DEL from endpoint
     func turnOffAlarm(alarm: Alarm) {
@@ -130,8 +129,5 @@ class AlarmHandler {
         let timeRef = timesRef.child(alarm.time)
         timeRef.removeValue()
     }
-    
-    
-    
     
 }

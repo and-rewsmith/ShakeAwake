@@ -21,6 +21,7 @@ class RegistrationController: UIViewController {
     var password: String?
     var ref: DatabaseReference?
 
+    
     @IBAction func register(_ sender: Any) {
         
         self.userEntry.text = self.userEntry.text?.lowercased()
@@ -60,19 +61,19 @@ class RegistrationController: UIViewController {
             
             
         }
-        
-        
-        
     }
+    
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.username = self.userEntry?.text
         self.password = MD5((self.passEntry1?.text)!)
     }
+    
     
     func isUsernameTaken(candidate: String, completionHandler2: @escaping (Bool)->()) {
         
@@ -86,6 +87,7 @@ class RegistrationController: UIViewController {
         })
         
     }
+    
     
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -103,15 +105,13 @@ class RegistrationController: UIViewController {
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         ref = Database.database().reference()
-
-        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
 }
 
