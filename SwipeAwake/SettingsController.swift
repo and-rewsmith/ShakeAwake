@@ -16,7 +16,7 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var intervalPicker: UIPickerView!
     
     let intervals = [1, 2, 3, 4, 5, 10, 15]
-    let sounds = ["By the Seaside"]
+    let sounds = ["By the Seaside", "Fade", "Classical", "Tropical", "Nokia"]
     
     var interval: Int?
     var sound: String?

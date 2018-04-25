@@ -17,7 +17,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var username: String?
     var sound: String?
     var interval: Int?
-    var sounds = ["By the Seaside" : "bts.mp3"]
+    var sounds = ["By the Seaside" : "bts.mp3", "Tropical":"tropical.mp3", "Nokia":"nokia.mp3", "Fade":"fade.mp3", "Classic":"classic.mp3"]
     var player: AVAudioPlayer?
     var timers: [String: Timer] = [String: Timer]()
     
@@ -196,6 +196,14 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             
             self.trimDatasource()
             self.alarmTableView.reloadData()
+            
+            let confirmationAlert = UIAlertController(title: "Turn Off Alarm?", message: "Turn off alarm by clicking OK.", preferredStyle: .alert)
+            
+            confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                self.player?.stop()
+            }))
+            
+            self.present(confirmationAlert, animated: true, completion: nil)
             
         }
         

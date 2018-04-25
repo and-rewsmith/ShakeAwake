@@ -20,6 +20,11 @@
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
 		4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B764208595BB00067F35 /* shakeHandler.swift */; };
 		4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C67208EAB460035FC01 /* GoogleService-Info.plist */; };
+		4E600C73208FFBCE0035FC01 /* tropical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C72208FFBCE0035FC01 /* tropical.mp3 */; };
+		4E600C75208FFBD40035FC01 /* nokia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C74208FFBD40035FC01 /* nokia.mp3 */; };
+		4E600C77208FFBDB0035FC01 /* fade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C76208FFBDB0035FC01 /* fade.mp3 */; };
+		4E600C79208FFBE10035FC01 /* classic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C78208FFBE10035FC01 /* classic.mp3 */; };
+		4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */; };
 		4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D07E6208846CB00F4B1BA /* SettingsController.swift */; };
 		4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC0D8E208AB45C0063E677 /* Utility.swift */; };
 		4ECC0D91208D11120063E677 /* bts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC0D90208D11110063E677 /* bts.mp3 */; };
@@ -44,6 +49,11 @@
 		4E44B75E2085498300067F35 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		4E44B764208595BB00067F35 /* shakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeHandler.swift; sourceTree = "<group>"; };
 		4E600C67208EAB460035FC01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E600C72208FFBCE0035FC01 /* tropical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tropical.mp3; sourceTree = "<group>"; };
+		4E600C74208FFBD40035FC01 /* nokia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nokia.mp3; sourceTree = "<group>"; };
+		4E600C76208FFBDB0035FC01 /* fade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fade.mp3; sourceTree = "<group>"; };
+		4E600C78208FFBE10035FC01 /* classic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classic.mp3; sourceTree = "<group>"; };
+		4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwipeAwakeLoad.png; path = SwipeAwake/SwipeAwakeLoad.png; sourceTree = "<group>"; };
 		4E9D07E6208846CB00F4B1BA /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		4ECC0D8B208A93E40063E677 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4ECC0D8E208AB45C0063E677 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -75,6 +85,7 @@
 		4E264AF22084377B00AB610D = {
 			isa = PBXGroup;
 			children = (
+				4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */,
 				3D0DDA822084405700B729AC /* AlarmClock.png */,
 				4E264AFD2084377C00AB610D /* SwipeAwake */,
 				4E264AFC2084377C00AB610D /* Products */,
@@ -94,6 +105,10 @@
 		4E264AFD2084377C00AB610D /* SwipeAwake */ = {
 			isa = PBXGroup;
 			children = (
+				4E600C78208FFBE10035FC01 /* classic.mp3 */,
+				4E600C76208FFBDB0035FC01 /* fade.mp3 */,
+				4E600C74208FFBD40035FC01 /* nokia.mp3 */,
+				4E600C72208FFBCE0035FC01 /* tropical.mp3 */,
 				4E600C67208EAB460035FC01 /* GoogleService-Info.plist */,
 				4ECC0D90208D11110063E677 /* bts.mp3 */,
 				4E264AFE2084377C00AB610D /* AppDelegate.swift */,
@@ -189,10 +204,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E264B102084655100AB610D /* AlarmClock.png in Resources */,
+				4E600C75208FFBD40035FC01 /* nokia.mp3 in Resources */,
+				4E600C77208FFBDB0035FC01 /* fade.mp3 in Resources */,
+				4E600C79208FFBE10035FC01 /* classic.mp3 in Resources */,
 				4E264B092084377C00AB610D /* LaunchScreen.storyboard in Resources */,
 				4E264B062084377C00AB610D /* Assets.xcassets in Resources */,
 				4E264B042084377C00AB610D /* Main.storyboard in Resources */,
 				4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */,
+				4E600C73208FFBCE0035FC01 /* tropical.mp3 in Resources */,
+				4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */,
 				4ECC0D91208D11120063E677 /* bts.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +415,7 @@
 			baseConfigurationReference = D95189A207CED9DC182C6016 /* Pods-SwipeAwake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CG7QWT9265;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwipeAwake/Info.plist;
@@ -411,6 +432,7 @@
 			baseConfigurationReference = 5C3215489B44DF2DA2CA4F5A /* Pods-SwipeAwake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CG7QWT9265;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwipeAwake/Info.plist;
