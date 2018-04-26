@@ -22,6 +22,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var player: AVAudioPlayer?
     var timers: [String: Timer] = [String: Timer]()
     lazy var motionManager = CMMotionManager()
+    var audioRecorder: AVAudioRecorder?
+
     
     
     @IBAction func signOut(_ sender: Any) {
@@ -252,6 +254,36 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         })
+        
+        
+        
+        
+        
+        
+        let path = Bundle.main.path(forResource: "sleepRecording.mp3", ofType: nil)!
+        let soundFileURL = URL(fileURLWithPath: path)
+        let recordSettings =
+            [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
+             AVEncoderBitRateKey: 16,
+             AVNumberOfChannelsKey: 2,
+             AVSampleRateKey: 44100.0] as [String : Any]
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(
+                AVAudioSessionCategoryPlayAndRecord)
+        } catch let error as NSError {
+            print("audioSession error: \(error.localizedDescription)")
+        }
+        do {
+            try audioRecorder = AVAudioRecorder(url: soundFileURL,
+                                                settings: recordSettings as [String : AnyObject])
+            audioRecorder?.prepareToRecord()
+            audioRecorder?.record()
+            print("RECORDING")
+        } catch let error as NSError {
+            print("audioSession error: \(error.localizedDescription)")
+        }
         
     }
     
