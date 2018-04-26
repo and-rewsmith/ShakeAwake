@@ -94,8 +94,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.onButtonTapped = {
             
-            print(alarm?.isSet)
-            
             if (alarm?.isSet)! {
                 print("turning off")
                 self.alarmHandler?.turnOffAlarm(alarm: alarm!)
@@ -105,14 +103,10 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 self.alarmHandler?.turnOnAlarm(alarm: alarm!)
             }
             
-            print(alarm?.isSet)
-            
             self.trimDatasource()
 
             self.alarmTableView.reloadRows(at: [indexPath], with: .automatic)
             
-            print("AUDIO STATUS")
-            print(self.audioRecorder?.isRecording)
         }
         
         if (alarm?.isSet)! {
@@ -184,10 +178,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 print("audioSession error: \(error.localizedDescription)")
             }
             
-            print(sound)
-            print(sounds[sound!])
             let resource = self.sounds[sound!]
-            print(resource)
             
             let path = Bundle.main.path(forResource: resource, ofType: nil)!
             print(path)
@@ -260,27 +251,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
         
-        
-        
-        
-        
-        
-        
-        
-        switch AVAudioSession.sharedInstance().recordPermission() {
-        case AVAudioSessionRecordPermission.granted:
-            print("GRANTED")
-        case AVAudioSessionRecordPermission.denied:
-            print("NOT GRANTED")
-        default:
-            print("NONE")
-        }
-        
-        
-        
-        
-        
-        
 //        let path = Bundle.main.path(forResource: "sleepRecording.ima4", ofType: nil)!
 //        let soundFileURL = URL(fileURLWithPath: path)
         
@@ -308,8 +278,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                                                 settings: recordSettings as [String : AnyObject])
             self.audioRecorder?.prepareToRecord()
             self.audioRecorder?.record()
-            print(self.audioRecorder?.isRecording)
-            print("RECORDING")
         } catch let error as NSError {
             print("audioSession error: \(error.localizedDescription)")
         }
@@ -343,12 +311,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func refreshUI() {
-        DispatchQueue.main.async(execute: {
-            self.alarmTableView.reloadData()
-        });
-    }
 
 }
 
