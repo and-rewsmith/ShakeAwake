@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreMotion
 
-class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioRecorderDelegate {
     
     @IBOutlet weak var alarmTableView: UITableView!
     
@@ -22,6 +22,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var player: AVAudioPlayer?
     var timers: [String: Timer] = [String: Timer]()
     lazy var motionManager = CMMotionManager()
+    var audioRecorder: AVAudioRecorder?
+
     
     
     @IBAction func signOut(_ sender: Any) {
@@ -108,6 +110,9 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             self.trimDatasource()
 
             self.alarmTableView.reloadRows(at: [indexPath], with: .automatic)
+            
+            print("AUDIO STATUS")
+            print(self.audioRecorder?.isRecording)
         }
         
         if (alarm?.isSet)! {
@@ -222,6 +227,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             
             topController?.present(confirmationAlert, animated: true, completion: nil)
             
+            
+            
         }
         
     }
@@ -252,6 +259,60 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         })
+        
+        
+        
+        
+        
+        
+        
+        
+        switch AVAudioSession.sharedInstance().recordPermission() {
+        case AVAudioSessionRecordPermission.granted:
+            print("GRANTED")
+        case AVAudioSessionRecordPermission.denied:
+            print("NOT GRANTED")
+        default:
+            print("NONE")
+        }
+        
+        
+        
+        
+        
+        
+//        let path = Bundle.main.path(forResource: "sleepRecording.ima4", ofType: nil)!
+//        let soundFileURL = URL(fileURLWithPath: path)
+        
+        var tempDirectoryURL = NSURL.fileURL(withPath: NSTemporaryDirectory(), isDirectory: true)
+        
+        // Create a destination URL.
+        tempDirectoryURL.appendPathComponent("sleepRecording.ima4")
+        
+        
+        let recordSettings =
+            [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
+             AVEncoderBitRateKey: 16,
+             AVNumberOfChannelsKey: 2,
+             AVSampleRateKey: 44100.0] as [String : Any]
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(
+                AVAudioSessionCategoryPlayAndRecord)
+        } catch let error as NSError {
+            print("audioSession error: \(error.localizedDescription)")
+        }
+        do {
+            try audioRecorder = AVAudioRecorder(url: tempDirectoryURL,
+                                                settings: recordSettings as [String : AnyObject])
+            self.audioRecorder?.prepareToRecord()
+            self.audioRecorder?.record()
+            print(self.audioRecorder?.isRecording)
+            print("RECORDING")
+        } catch let error as NSError {
+            print("audioSession error: \(error.localizedDescription)")
+        }
         
     }
     

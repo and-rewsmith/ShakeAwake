@@ -25,6 +25,7 @@
 		4E600C77208FFBDB0035FC01 /* fade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C76208FFBDB0035FC01 /* fade.mp3 */; };
 		4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */; };
 		4E600CA5209021130035FC01 /* classic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA4209021130035FC01 /* classic.mp3 */; };
+		4E600CAA2091AA640035FC01 /* sleepRecording.ima4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA92091AA640035FC01 /* sleepRecording.ima4 */; };
 		4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D07E6208846CB00F4B1BA /* SettingsController.swift */; };
 		4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC0D8E208AB45C0063E677 /* Utility.swift */; };
 		4ECC0D91208D11120063E677 /* bts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC0D90208D11110063E677 /* bts.mp3 */; };
@@ -54,6 +55,7 @@
 		4E600C76208FFBDB0035FC01 /* fade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fade.mp3; sourceTree = "<group>"; };
 		4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwipeAwakeLoad.png; path = SwipeAwake/SwipeAwakeLoad.png; sourceTree = "<group>"; };
 		4E600CA4209021130035FC01 /* classic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classic.mp3; sourceTree = "<group>"; };
+		4E600CA92091AA640035FC01 /* sleepRecording.ima4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sleepRecording.ima4; sourceTree = "<group>"; };
 		4E9D07E6208846CB00F4B1BA /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		4ECC0D8B208A93E40063E677 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4ECC0D8E208AB45C0063E677 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		4E264AF22084377B00AB610D = {
 			isa = PBXGroup;
 			children = (
+				4E600CA92091AA640035FC01 /* sleepRecording.ima4 */,
 				4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */,
 				3D0DDA822084405700B729AC /* AlarmClock.png */,
 				4E264AFD2084377C00AB610D /* SwipeAwake */,
@@ -177,6 +180,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = CG7QWT9265;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -211,6 +219,7 @@
 				4E264B042084377C00AB610D /* Main.storyboard in Resources */,
 				4E600CA5209021130035FC01 /* classic.mp3 in Resources */,
 				4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */,
+				4E600CAA2091AA640035FC01 /* sleepRecording.ima4 in Resources */,
 				4E600C73208FFBCE0035FC01 /* tropical.mp3 in Resources */,
 				4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */,
 				4ECC0D91208D11120063E677 /* bts.mp3 in Resources */,
