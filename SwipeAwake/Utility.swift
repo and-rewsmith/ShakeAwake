@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func MD5(_ string: String) -> String? {
     let length = Int(CC_MD5_DIGEST_LENGTH)
@@ -20,5 +21,23 @@ func MD5(_ string: String) -> String? {
     
     return (0..<length).reduce("") {
         $0 + String(format: "%02x", digest[$1])
+    }
+}
+
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
     }
 }

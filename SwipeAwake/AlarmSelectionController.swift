@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
 
 class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,9 +18,10 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var username: String?
     var sound: String?
     var interval: Int?
-    var sounds = ["By the Seaside" : "bts.mp3", "Tropical":"tropical.mp3", "Nokia":"nokia.mp3", "Fade":"fade.mp3", "Classic":"classic.mp3"]
+    var sounds = ["By the Seaside" : "bts.mp3", "Tropical":"tropical.mp3", "Nokia":"nokia.mp3", "Fade":"fade.mp3", "Classical":"classic.mp3"]
     var player: AVAudioPlayer?
     var timers: [String: Timer] = [String: Timer]()
+    lazy var motionManager = CMMotionManager()
     
     
     @IBAction func signOut(_ sender: Any) {
@@ -70,10 +72,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.username = self.username
             destinationVC.interval = self.interval
             destinationVC.sound = self.sound
-            for time in self.timers.keys {
-                self.timers[time]?.invalidate()
-                self.timers[time] = nil
-            }
         }
     }
     
@@ -116,6 +114,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             var t = Timer()
             t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: alarm, repeats: true)
             
+            self.timers[(alarm?.time)!]?.invalidate()
+            self.timers[(alarm?.time)!] = nil
             self.timers[(alarm?.time)!] = t
         }
         else {
@@ -179,11 +179,16 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 print("audioSession error: \(error.localizedDescription)")
             }
             
+            print(sound)
+            print(sounds[sound!])
             let resource = self.sounds[sound!]
+            print(resource)
             
             let path = Bundle.main.path(forResource: resource, ofType: nil)!
+            print(path)
             
             let url = URL(fileURLWithPath: path)
+            print(url)
             
             do {
                 self.player = try AVAudioPlayer(contentsOf: url)
@@ -197,18 +202,27 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             self.trimDatasource()
             self.alarmTableView.reloadData()
             
-            let confirmationAlert = UIAlertController(title: "Turn Off Alarm?", message: "Turn off alarm by clicking OK.", preferredStyle: .alert)
+            let topController = UIApplication.topViewController()
             
-            confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                self.player?.stop()
-            }))
+            let confirmationAlert: UIAlertController
             
-            self.present(confirmationAlert, animated: true, completion: nil)
+            if topController is AlarmSelectionController {
+                confirmationAlert = UIAlertController(title: "Shake to Turn Off", message: "Click Ok then shake!", preferredStyle: .alert)
+                
+                confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                }))
+            }
+            
+            else {
+                confirmationAlert = UIAlertController(title: "Navigate Back then Shake!", message: "", preferredStyle: .alert)
+                
+                confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                }))
+            }
+            
+            topController?.present(confirmationAlert, animated: true, completion: nil)
             
         }
-        
-        // else if triggered and alarm not set listen for shake to kill sound
-        
         
     }
     
@@ -229,7 +243,26 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         
         self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
             self.alarmTableView.reloadData()
+            for alarm in (self.alarmHandler?.alarms)! {
+                if alarm.isSet {
+                    let t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: alarm, repeats: true)
+                    self.timers[(alarm.time)]?.invalidate()
+                    self.timers[(alarm.time)] = nil
+                    self.timers[(alarm.time)] = t
+                }
+            }
         })
+        
+    }
+    
+    
+    // Add your motionEnded function here
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        print("Motion???")
+        if motion == .motionShake {
+            print("turning off")
+            self.player?.stop()
+        }
     }
     
     
