@@ -103,11 +103,10 @@ class LogInController: UIViewController {
             destinationVC.interval = 5
             destinationVC.sound = "By the Seaside"
             destinationVC.usingCoreData = false
-            print("TRIGGERING LOGIN SEGUE")
+            //print("TRIGGERING LOGIN SEGUE")
         }
         
         if segue.identifier == "Skip" {
-            print("SETTING FIELDS")
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.username = ""
