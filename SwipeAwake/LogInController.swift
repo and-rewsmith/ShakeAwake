@@ -139,7 +139,7 @@ class LogInController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        AppUtility.lockOrientation(.all)
+        AppUtility.lockOrientation(.portrait)
     }
     
 }

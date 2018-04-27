@@ -50,7 +50,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound, let source_usingCoreData = sourceViewController.usingCoreData {
-            print(source_interval)
             self.username = source_username
             self.interval = source_interval
             if self.usingCoreData! {
@@ -59,7 +58,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                         self.alarmTableView.reloadData()
                     }
                 })
-                print(self.alarmHandler?.alarms.count)
                 self.sanitizeEnvironment()
             }
             else {
@@ -269,6 +267,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    
     func sanitizeEnvironment() {
         for alarm in (self.alarmHandler?.alarms)! {
             if alarm.isSet {
@@ -283,48 +282,15 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print("turning off")
             self.player?.stop()
         }
     }
     
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
-            print(self.interval)
-            print(self.username)
-        } else {
-            print("Portrait")
-            print(self.interval)
-            print(self.username)
-        }
-        print()
-    }
-    
-    
-//    override var shouldAutorotate: Bool {
-//        return false
-//    }
-//    
-//    
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        return UIInterfaceOrientationMask(rawValue: UInt(Int(UIInterfaceOrientationMask.portrait.rawValue)))
-//    }
-//    
-//    
-//    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-//        return UIInterfaceOrientation.portrait
-//    }
-    
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.black
-        print("SHOULD ENTER SETUP")
         if !self.usingCoreData! {
             self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
                 DispatchQueue.main.async {
@@ -333,8 +299,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             })
         }
         else {
-            print("IN CORE DATA SETUP")
-            //call core data init
             self.alarmHandler = AlarmHandler(interval: 5){
                 DispatchQueue.main.async {
                     self.alarmTableView.reloadData()
@@ -370,7 +334,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             print("audioSession error: \(error.localizedDescription)")
         }
         
-        // Force the device in portrait mode when the view controller gets loaded
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         
     }
