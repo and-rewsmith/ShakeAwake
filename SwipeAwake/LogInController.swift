@@ -103,6 +103,7 @@ class LogInController: UIViewController {
             destinationVC.interval = 5
             destinationVC.sound = "By the Seaside"
             destinationVC.usingCoreData = false
+            print("TRIGGERING LOGIN SEGUE")
         }
         
         if segue.identifier == "Skip" {

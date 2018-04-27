@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+import CoreMotion
 
 class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -22,8 +24,11 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     var sound: String?
     var username: String?
     var usingCoreData: Bool?
-    
-    
+    //var previousVC: AlarmSelectionController?
+    lazy var motionManager = CMMotionManager()
+    var player: AVAudioPlayer?
+
+
     @IBAction func saveSettings(_ sender: Any) {
         let confirmationAlert = UIAlertController(title: "Save Settings?", message: "Alarms not in the selected interval will no longer be active.", preferredStyle: .alert)
         
@@ -90,6 +95,15 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
             
         }
     
+    }
+    
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("turning off")
+            //previousVC?.player?.stop()
+            self.player?.stop()
+        }
     }
     
     

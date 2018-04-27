@@ -24,6 +24,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     lazy var motionManager = CMMotionManager()
     var audioRecorder: AVAudioRecorder?
     var usingCoreData: Bool?
+    var nextVC: SettingsController?
 
     
     
@@ -48,14 +49,18 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound, let source_usingCoreData = sourceViewController.usingCoreData {
+            print("UNWINDING")
+            //let semaphore = DispatchSemaphore(value: 0)
             print(source_interval)
             self.username = source_username
             self.interval = source_interval
             self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
                 self.alarmTableView.reloadData()
+                //semaphore.signal()
             })
             self.sound = source_sound
             self.usingCoreData = source_usingCoreData
+            //_ = semaphore.wait(timeout: DispatchTime.distantFuture)
         }
     }
     
@@ -66,17 +71,15 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "backupToSelection" {
-//            let destinationVC = segue.destination as! AlarmSelectionController
-//            destinationVC.username = self.username
-//        }
         if segue.identifier == "Settings" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! SettingsController
+            self.nextVC = destinationVC
             destinationVC.username = self.username
             destinationVC.interval = self.interval
             destinationVC.sound = self.sound
             destinationVC.usingCoreData = self.usingCoreData
+            //destinationVC.previousVC = self
         }
     }
     
@@ -181,10 +184,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             let resource = self.sounds[sound!]
             
             let path = Bundle.main.path(forResource: resource, ofType: nil)!
-            print(path)
             
             let url = URL(fileURLWithPath: path)
-            print(url)
             
             do {
                 self.player = try AVAudioPlayer(contentsOf: url)
@@ -195,25 +196,22 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 print("Couldn't play sound!")
             }
             
-            self.trimDatasource()
-            self.alarmTableView.reloadData()
-            
             let topController = UIApplication.topViewController()
             
             let confirmationAlert: UIAlertController
             
             if topController is AlarmSelectionController {
-                confirmationAlert = UIAlertController(title: "Shake to Turn Off", message: "Click Ok then shake!", preferredStyle: .alert)
-                
-                confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                }))
+                self.trimDatasource()
+                self.alarmTableView.reloadData()
             }
             
-            else {
-                confirmationAlert = UIAlertController(title: "Navigate Back then Shake!", message: "", preferredStyle: .alert)
-                
-                confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                }))
+            confirmationAlert = UIAlertController(title: "Shake to Turn Off", message: "Click Ok then shake!", preferredStyle: .alert)
+            
+            confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            if self.nextVC != nil {
+                self.nextVC?.player = self.player
             }
             
             topController?.present(confirmationAlert, animated: true, completion: nil)
@@ -227,6 +225,28 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             let dummy: [Alarm] = Array(tmp)
             self.alarmHandler?.alarms = dummy
         }
+    }
+    
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("turning off")
+            self.player?.stop()
+        }
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            print(self.interval)
+            print(self.username)
+        } else {
+            print("Portrait")
+            print(self.interval)
+            print(self.username)
+        }
+        print()
     }
 
     
@@ -251,7 +271,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         else {
             //call core data init
         }
-
         
         var tempDirectoryURL = NSURL.fileURL(withPath: NSTemporaryDirectory(), isDirectory: true)
         
@@ -279,14 +298,6 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             print("audioSession error: \(error.localizedDescription)")
         }
         
-    }
-    
-    
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            print("turning off")
-            self.player?.stop()
-        }
     }
     
     
