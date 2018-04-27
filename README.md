@@ -54,7 +54,7 @@ Our wireframe shows the basic layout we are envisioning for our app. After the l
 ### Testing Methodologies - What did you do to test the app?
 - We connected our phones to our computers and ran the app. 
 - We tested various test cases including selecting multiple alarms very close together, adding duplicate data to core data, and others.
- - We tested the backend components through the consol making sure that firebase updated as we selected alarms.
+ - We tested the backend components through the console making sure that firebase updated as we selected alarms.
 ### Usage - Include any special info we need to run the app (username/passwords, etc.)
 - You do not need any information to run the app with Core Data.
 - You can make an account and login using a custom username and password using the register button on the first page.
