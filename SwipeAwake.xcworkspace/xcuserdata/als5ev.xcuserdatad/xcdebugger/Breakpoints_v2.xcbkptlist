@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwipeAwake/AlarmHandler.swift"
-            timestampString = "546486915.26445"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "AlarmHandler"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SwipeAwake/AlarmSelectionController.swift"
             timestampString = "546412269.495752"
             startingColumnNumber = "9223372036854775807"
@@ -68,7 +52,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwipeAwake/shakeHandler.swift"
@@ -81,14 +65,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SwipeAwake.ShakeViewController.__deallocating_deinit"
                   moduleName = "SwipeAwake"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/shakeHandler.swift"
-                  timestampString = "546494557.867828"
+                  timestampString = "546500039.298227"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -96,14 +80,14 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SwipeAwake.ShakeViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SwipeAwake.ShakeViewController"
                   moduleName = "SwipeAwake"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/shakeHandler.swift"
-                  timestampString = "546494557.87063"
+                  timestampString = "546500039.301146"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -111,14 +95,14 @@
                   offsetFromSymbolStart = "84">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SwipeAwake.ShakeViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SwipeAwake.ShakeViewController"
                   moduleName = "SwipeAwake"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/shakeHandler.swift"
-                  timestampString = "546494557.872985"
+                  timestampString = "546500039.303987"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -126,14 +110,14 @@
                   offsetFromSymbolStart = "32">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SwipeAwake.ShakeViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SwipeAwake.ShakeViewController&gt;"
                   moduleName = "SwipeAwake"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/shakeHandler.swift"
-                  timestampString = "546494557.875224"
+                  timestampString = "546500039.306893"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -141,14 +125,14 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SwipeAwake.ShakeViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SwipeAwake.ShakeViewController&gt;"
                   moduleName = "SwipeAwake"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/shakeHandler.swift"
-                  timestampString = "546494557.877718"
+                  timestampString = "546500039.3098691"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -165,11 +149,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwipeAwake/SettingsController.swift"
-            timestampString = "546492927.5882"
+            timestampString = "546509219.728004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -219,22 +203,6 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwipeAwake/LogInController.swift"
-            timestampString = "546494398.1143039"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -305,59 +273,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwipeAwake/AlarmSelectionController.swift"
-            timestampString = "546492927.5882"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "unwindToAlarmSelection(sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwipeAwake.AlarmSelectionController.unwindToAlarmSelection (sender : __ObjC.UIStoryboardSegue) -&gt; ()"
-                  moduleName = "SwipeAwake"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/AlarmSelectionController.swift"
-                  timestampString = "546040186.6290849"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwipeAwake.AlarmSelectionController.unwindToAlarmSelection (sender : __ObjC.UIStoryboardSegue) -&gt; ()"
-                  moduleName = "SwipeAwake"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/AlarmSelectionController.swift"
-                  timestampString = "546040186.6340851"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "168">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -383,13 +303,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwipeAwake/AlarmSelectionController.swift"
-            timestampString = "546493845.212198"
+            timestampString = "546506465.880821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwipeAwake/AlarmHandler.swift"
+            timestampString = "546505238.1596169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwipeAwake/AlarmSelectionController.swift"
+            timestampString = "546506465.880821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "updateTimer(timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwipeAwake/SettingsController.swift"
+            timestampString = "546506874.30445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "saveSettings(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.SettingsController.saveSettings (Any) -&gt; ()"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/SettingsController.swift"
+                  timestampString = "546506874.499504"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwipeAwake.SettingsController.(saveSettings (Any) -&gt; ()).(closure #1)"
+                  moduleName = "SwipeAwake"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/als5ev/Desktop/final-project-final-smithmccall/SwipeAwake/SettingsController.swift"
+                  timestampString = "546506874.503696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwipeAwake/AlarmSelectionController.swift"
+            timestampString = "546508068.14492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "AlarmSelectionController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

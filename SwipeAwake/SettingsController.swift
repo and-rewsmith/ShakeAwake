@@ -24,15 +24,19 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     var sound: String?
     var username: String?
     var usingCoreData: Bool?
-    //var previousVC: AlarmSelectionController?
     lazy var motionManager = CMMotionManager()
     var player: AVAudioPlayer?
+    var timers: [String: Timer]?
 
 
     @IBAction func saveSettings(_ sender: Any) {
         let confirmationAlert = UIAlertController(title: "Save Settings?", message: "Alarms not in the selected interval will no longer be active.", preferredStyle: .alert)
         
         confirmationAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            for time in (self.timers?.keys)! {
+                self.timers?[time]?.invalidate()
+                self.timers?[time] = nil
+            }
             self.performSegue(withIdentifier: "backupToSelection", sender: sender)
         }))
         
@@ -133,6 +137,11 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
             index += 1
         }
         self.soundPicker.selectRow(index, inComponent: 0, animated: true)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AppUtility.lockOrientation(.portrait)
     }
     
     

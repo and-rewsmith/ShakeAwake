@@ -18,7 +18,6 @@
 		4E264B12208465FA00AB610D /* AlarmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264B11208465FA00AB610D /* AlarmHandler.swift */; };
 		4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */; };
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
-		4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B764208595BB00067F35 /* shakeHandler.swift */; };
 		4E600C69208EAC3D0035FC01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C67208EAB460035FC01 /* GoogleService-Info.plist */; };
 		4E600C73208FFBCE0035FC01 /* tropical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C72208FFBCE0035FC01 /* tropical.mp3 */; };
 		4E600C75208FFBD40035FC01 /* nokia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C74208FFBD40035FC01 /* nokia.mp3 */; };
@@ -26,6 +25,7 @@
 		4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */; };
 		4E600CA5209021130035FC01 /* classic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA4209021130035FC01 /* classic.mp3 */; };
 		4E600CAA2091AA640035FC01 /* sleepRecording.ima4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA92091AA640035FC01 /* sleepRecording.ima4 */; };
+		4E600CAD2092E6F70035FC01 /* SwipeAwake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E600CAB2092E6F70035FC01 /* SwipeAwake.xcdatamodeld */; };
 		4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D07E6208846CB00F4B1BA /* SettingsController.swift */; };
 		4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC0D8E208AB45C0063E677 /* Utility.swift */; };
 		4ECC0D91208D11120063E677 /* bts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC0D90208D11110063E677 /* bts.mp3 */; };
@@ -48,7 +48,6 @@
 		4E264B11208465FA00AB610D /* AlarmHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmHandler.swift; sourceTree = "<group>"; };
 		4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		4E44B75E2085498300067F35 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		4E44B764208595BB00067F35 /* shakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeHandler.swift; sourceTree = "<group>"; };
 		4E600C67208EAB460035FC01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E600C72208FFBCE0035FC01 /* tropical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tropical.mp3; sourceTree = "<group>"; };
 		4E600C74208FFBD40035FC01 /* nokia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nokia.mp3; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwipeAwakeLoad.png; path = SwipeAwake/SwipeAwakeLoad.png; sourceTree = "<group>"; };
 		4E600CA4209021130035FC01 /* classic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classic.mp3; sourceTree = "<group>"; };
 		4E600CA92091AA640035FC01 /* sleepRecording.ima4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sleepRecording.ima4; sourceTree = "<group>"; };
+		4E600CAC2092E6F70035FC01 /* SwipeAwake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwipeAwake.xcdatamodel; sourceTree = "<group>"; };
 		4E9D07E6208846CB00F4B1BA /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		4ECC0D8B208A93E40063E677 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4ECC0D8E208AB45C0063E677 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -87,6 +87,7 @@
 		4E264AF22084377B00AB610D = {
 			isa = PBXGroup;
 			children = (
+				4E600CAB2092E6F70035FC01 /* SwipeAwake.xcdatamodeld */,
 				4E600CA92091AA640035FC01 /* sleepRecording.ima4 */,
 				4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */,
 				3D0DDA822084405700B729AC /* AlarmClock.png */,
@@ -125,7 +126,6 @@
 				4E264B11208465FA00AB610D /* AlarmHandler.swift */,
 				4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */,
 				4E44B75E2085498300067F35 /* Alarm.swift */,
-				4E44B764208595BB00067F35 /* shakeHandler.swift */,
 				4E9D07E6208846CB00F4B1BA /* SettingsController.swift */,
 				4E2447BA208959A500445268 /* Registration.swift */,
 				4ECC0D8B208A93E40063E677 /* Bridging-Header.h */,
@@ -291,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E600CAD2092E6F70035FC01 /* SwipeAwake.xcdatamodeld in Sources */,
 				4ECC0D8F208AB45C0063E677 /* Utility.swift in Sources */,
 				4E9D07E7208846CB00F4B1BA /* SettingsController.swift in Sources */,
 				4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */,
@@ -300,7 +301,6 @@
 				4E264AFF2084377C00AB610D /* AppDelegate.swift in Sources */,
 				4E2447BB208959A500445268 /* Registration.swift in Sources */,
 				4E44B75F2085498300067F35 /* Alarm.swift in Sources */,
-				4E44B765208595BB00067F35 /* shakeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +475,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E600CAB2092E6F70035FC01 /* SwipeAwake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E600CAC2092E6F70035FC01 /* SwipeAwake.xcdatamodel */,
+			);
+			currentVersion = 4E600CAC2092E6F70035FC01 /* SwipeAwake.xcdatamodel */;
+			path = SwipeAwake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4E264AF32084377B00AB610D /* Project object */;
 }

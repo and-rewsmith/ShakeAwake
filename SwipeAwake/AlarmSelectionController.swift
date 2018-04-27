@@ -37,7 +37,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 self.timers[time]?.invalidate()
                 self.timers[time] = nil
             }
-               self.performSegue(withIdentifier: "backupToLogin", sender: sender)
+            self.performSegue(withIdentifier: "backupToLogin", sender: sender)
+            self.player?.stop()
         }))
         
         confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -49,18 +50,29 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound, let source_usingCoreData = sourceViewController.usingCoreData {
-            print("UNWINDING")
-            //let semaphore = DispatchSemaphore(value: 0)
             print(source_interval)
             self.username = source_username
             self.interval = source_interval
-            self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
-                self.alarmTableView.reloadData()
-                //semaphore.signal()
-            })
+            if self.usingCoreData! {
+                self.alarmHandler = AlarmHandler(interval: source_interval, completionHandler: {
+                    DispatchQueue.main.async {
+                        self.alarmTableView.reloadData()
+                    }
+                })
+                print(self.alarmHandler?.alarms.count)
+                self.sanitizeEnvironment()
+            }
+            else {
+                self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
+                    DispatchQueue.main.async {
+                        self.alarmTableView.reloadData()
+                    }
+                })
+                self.sanitizeEnvironment()
+            }
+
             self.sound = source_sound
             self.usingCoreData = source_usingCoreData
-            //_ = semaphore.wait(timeout: DispatchTime.distantFuture)
         }
     }
     
@@ -79,13 +91,18 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.interval = self.interval
             destinationVC.sound = self.sound
             destinationVC.usingCoreData = self.usingCoreData
-            //destinationVC.previousVC = self
+            destinationVC.timers = self.timers
         }
     }
     
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarmHandler!.alarms.count
+        if self.alarmHandler != nil {
+            return alarmHandler!.alarms.count
+        }
+        else {
+            return 0
+        }
     }
     
     
@@ -99,11 +116,21 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             
             if (alarm?.isSet)! {
                 print("turning off")
-                self.alarmHandler?.turnOffAlarm(alarm: alarm!)
+                if self.usingCoreData! {
+                    self.alarmHandler?.turnOffAlarm(alarm: alarm!, usingCoreData: true)
+                }
+                else {
+                    self.alarmHandler?.turnOffAlarm(alarm: alarm!, usingCoreData: false)
+                }
             }
             else {
                 print("turning on")
-                self.alarmHandler?.turnOnAlarm(alarm: alarm!)
+                if self.usingCoreData! {
+                    self.alarmHandler?.turnOnAlarm(alarm: alarm!, usingCoreData: true)
+                }
+                else {
+                    self.alarmHandler?.turnOnAlarm(alarm: alarm!, usingCoreData: false)
+                }
             }
             
             self.trimDatasource()
@@ -164,7 +191,12 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         print()
         
         if cmp == alarm.time && alarm.isSet {
-            self.alarmHandler?.turnOffAlarm(alarm: alarm)
+            if self.usingCoreData! {
+                self.alarmHandler?.turnOffAlarm(alarm: alarm, usingCoreData: true)
+            }
+            else {
+                self.alarmHandler?.turnOffAlarm(alarm: alarm, usingCoreData: false)
+            }
             self.timers[alarm.time]?.invalidate()
             self.timers[alarm.time] = nil
             
@@ -200,14 +232,24 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             
             let confirmationAlert: UIAlertController
             
+            var should_reload: Bool?
+            
             if topController is AlarmSelectionController {
                 self.trimDatasource()
-                self.alarmTableView.reloadData()
+                should_reload = true
+            }
+            else {
+                should_reload = false
             }
             
             confirmationAlert = UIAlertController(title: "Shake to Turn Off", message: "Click Ok then shake!", preferredStyle: .alert)
             
             confirmationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                if should_reload! {
+                    DispatchQueue.main.async {
+                        self.alarmTableView.reloadData()
+                    }
+                }
             }))
             
             if self.nextVC != nil {
@@ -224,6 +266,17 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         if let tmp = self.alarmHandler?.alarms[0..<cutoff] {
             let dummy: [Alarm] = Array(tmp)
             self.alarmHandler?.alarms = dummy
+        }
+    }
+    
+    func sanitizeEnvironment() {
+        for alarm in (self.alarmHandler?.alarms)! {
+            if alarm.isSet {
+                let t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: alarm, repeats: true)
+                self.timers[(alarm.time)]?.invalidate()
+                self.timers[(alarm.time)] = nil
+                self.timers[(alarm.time)] = t
+            }
         }
     }
     
@@ -248,29 +301,48 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
         }
         print()
     }
+    
+    
+//    override var shouldAutorotate: Bool {
+//        return false
+//    }
+//    
+//    
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return UIInterfaceOrientationMask(rawValue: UInt(Int(UIInterfaceOrientationMask.portrait.rawValue)))
+//    }
+//    
+//    
+//    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+//        return UIInterfaceOrientation.portrait
+//    }
+    
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.black
-        
+        print("SHOULD ENTER SETUP")
         if !self.usingCoreData! {
             self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
-                self.alarmTableView.reloadData()
-                for alarm in (self.alarmHandler?.alarms)! {
-                    if alarm.isSet {
-                        let t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: alarm, repeats: true)
-                        self.timers[(alarm.time)]?.invalidate()
-                        self.timers[(alarm.time)] = nil
-                        self.timers[(alarm.time)] = t
-                    }
+                DispatchQueue.main.async {
+                    self.alarmTableView.reloadData()
                 }
             })
         }
         else {
+            print("IN CORE DATA SETUP")
             //call core data init
+            self.alarmHandler = AlarmHandler(interval: 5){
+                DispatchQueue.main.async {
+                    self.alarmTableView.reloadData()
+                }
+            }
         }
+        
+        self.sanitizeEnvironment()
         
         var tempDirectoryURL = NSURL.fileURL(withPath: NSTemporaryDirectory(), isDirectory: true)
         
@@ -298,6 +370,9 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             print("audioSession error: \(error.localizedDescription)")
         }
         
+        // Force the device in portrait mode when the view controller gets loaded
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        
     }
     
     
@@ -307,6 +382,8 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         self.alarmTableView.allowsSelection = false;
+        AppUtility.lockOrientation(.portrait)
+
     }
 
     

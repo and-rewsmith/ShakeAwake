@@ -107,6 +107,7 @@ class LogInController: UIViewController {
         }
         
         if segue.identifier == "Skip" {
+            print("SETTING FIELDS")
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
             destinationVC.username = ""
@@ -134,6 +135,11 @@ class LogInController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AppUtility.lockOrientation(.all)
     }
     
 }
