@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-
 func populateTimes(interval: Int)->[String] {
     
     var times = [String]()
@@ -78,7 +77,6 @@ class AlarmHandler {
                     
                     let timeSnapshot = snapshot.childSnapshot(forPath: t)
                     
-                    //if model changes this must change
                     if let timeRef = timeSnapshot.value as! [String: Bool]? {
                         isSet = timeRef["status"]!
                     }

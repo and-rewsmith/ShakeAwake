@@ -20,7 +20,6 @@ class ShakeViewController: UIViewController {
     @IBOutlet weak var shakeLabel: UILabel!
     var shakeCount : Int = 0
     
-    // Add your motionEnded function here
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             player?.stop()
@@ -34,8 +33,5 @@ class ShakeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
-    
     
 }

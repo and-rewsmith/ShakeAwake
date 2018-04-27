@@ -8,7 +8,6 @@
 
 import Foundation
 
-//We are going to need to add a lot to this model
 class Alarm {
 
     var time: String

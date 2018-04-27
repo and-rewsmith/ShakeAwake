@@ -21,6 +21,8 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     var interval: Int?
     var sound: String?
     var username: String?
+    var usingCoreData: Bool?
+    
     
     @IBAction func saveSettings(_ sender: Any) {
         let confirmationAlert = UIAlertController(title: "Save Settings?", message: "Alarms not in the selected interval will no longer be active.", preferredStyle: .alert)
@@ -36,7 +38,6 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     
-    // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.interval = intervals[intervalPicker.selectedRow(inComponent: 0)]
         self.sound = sounds[soundPicker.selectedRow(inComponent: 0)]
@@ -47,10 +48,12 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
         dismiss(animated: true, completion: nil)
     }
     
+    
     // returns the number of 'columns' to display.
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     
     // returns the # of rows in each component..
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -67,6 +70,7 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
@@ -88,21 +92,10 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     }
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if pickerView == intervalPicker {
-//            print(intervals[row])
-//        }
-//        else if pickerView == soundPicker {
-//            print(sounds[row])
-//        }
-//    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UIColorFromHex(rgbValue:0x795791, alpha: 1)
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.intervalPicker.delegate = self
         self.intervalPicker.dataSource = self
         
@@ -126,14 +119,12 @@ class SettingsController: UIViewController, UIPickerViewDataSource, UIPickerView
             index += 1
         }
         self.soundPicker.selectRow(index, inComponent: 0, animated: true)
-        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

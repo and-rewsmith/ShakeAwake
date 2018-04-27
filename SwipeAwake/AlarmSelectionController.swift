@@ -23,6 +23,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     var timers: [String: Timer] = [String: Timer]()
     lazy var motionManager = CMMotionManager()
     var audioRecorder: AVAudioRecorder?
+    var usingCoreData: Bool?
 
     
     
@@ -46,7 +47,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func unwindToAlarmSelection(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound {
+        if let sourceViewController = sender.source as? SettingsController, let source_interval = sourceViewController.interval, let source_username = sourceViewController.username, let source_sound = sourceViewController.sound, let source_usingCoreData = sourceViewController.usingCoreData {
             print(source_interval)
             self.username = source_username
             self.interval = source_interval
@@ -54,6 +55,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
                 self.alarmTableView.reloadData()
             })
             self.sound = source_sound
+            self.usingCoreData = source_usingCoreData
         }
     }
     
@@ -64,16 +66,17 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backupToSelection" {
-            let destinationVC = segue.destination as! AlarmSelectionController
-            destinationVC.username = self.username
-        }
+//        if segue.identifier == "backupToSelection" {
+//            let destinationVC = segue.destination as! AlarmSelectionController
+//            destinationVC.username = self.username
+//        }
         if segue.identifier == "Settings" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! SettingsController
             destinationVC.username = self.username
             destinationVC.interval = self.interval
             destinationVC.sound = self.sound
+            destinationVC.usingCoreData = self.usingCoreData
         }
     }
     
@@ -83,14 +86,11 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AlarmTableViewCell
         
         let alarm = self.alarmHandler?.alarms[indexPath.row]
-        
         
         cell.onButtonTapped = {
             
@@ -217,11 +217,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             topController?.present(confirmationAlert, animated: true, completion: nil)
-            
-            
-            
         }
-        
     }
     
     
@@ -236,29 +232,30 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         self.view.backgroundColor = UIColor.black
         
-        self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
-            self.alarmTableView.reloadData()
-            for alarm in (self.alarmHandler?.alarms)! {
-                if alarm.isSet {
-                    let t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: alarm, repeats: true)
-                    self.timers[(alarm.time)]?.invalidate()
-                    self.timers[(alarm.time)] = nil
-                    self.timers[(alarm.time)] = t
+        if !self.usingCoreData! {
+            self.alarmHandler = AlarmHandler(user: self.username!, interval: self.interval!, completionHandler: { () in
+                self.alarmTableView.reloadData()
+                for alarm in (self.alarmHandler?.alarms)! {
+                    if alarm.isSet {
+                        let t = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: alarm, repeats: true)
+                        self.timers[(alarm.time)]?.invalidate()
+                        self.timers[(alarm.time)] = nil
+                        self.timers[(alarm.time)] = t
+                    }
                 }
-            }
-        })
-        
-//        let path = Bundle.main.path(forResource: "sleepRecording.ima4", ofType: nil)!
-//        let soundFileURL = URL(fileURLWithPath: path)
+            })
+        }
+        else {
+            //call core data init
+        }
+
         
         var tempDirectoryURL = NSURL.fileURL(withPath: NSTemporaryDirectory(), isDirectory: true)
         
-        // Create a destination URL.
         tempDirectoryURL.appendPathComponent("sleepRecording.ima4")
-        
         
         let recordSettings =
             [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
@@ -285,9 +282,7 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    // Add your motionEnded function here
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        print("Motion???")
         if motion == .motionShake {
             print("turning off")
             self.player?.stop()
@@ -296,19 +291,16 @@ class AlarmSelectionController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.alarmTableView.reloadData()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.alarmTableView.reloadData()
         self.alarmTableView.allowsSelection = false;
     }
 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 

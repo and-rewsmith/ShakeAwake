@@ -102,32 +102,29 @@ class LogInController: UIViewController {
             destinationVC.username = self.userEntry.text!
             destinationVC.interval = 5
             destinationVC.sound = "By the Seaside"
+            destinationVC.usingCoreData = false
         }
         
         if segue.identifier == "Skip" {
             let navVC = segue.destination as! UINavigationController
             let destinationVC = navVC.topViewController as! AlarmSelectionController
-            destinationVC.username = "xzhfbqjwejzakl"
+            destinationVC.username = ""
             destinationVC.interval = 5
             destinationVC.sound = "By the Seaside"
+            destinationVC.usingCoreData = true
         }
     }
     
     
-    //Calls this function when the tap is recognized.
     func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UIColorFromHex(rgbValue:0x795791, alpha: 1)
-        // Do any additional setup after loading the view, typically from a nib.
+
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationController.dismissKeyboard))
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         ref = Database.database().reference()
@@ -136,7 +133,6 @@ class LogInController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
