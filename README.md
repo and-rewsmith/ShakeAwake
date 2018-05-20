@@ -11,7 +11,9 @@
   </p>
   
   ## Wireframe
-  Coming soon
   
+  <p align="center">
+    <img src="wireframe.png" width="500">
+  </p>
   
  
