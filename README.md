@@ -13,7 +13,7 @@
   ## Wireframe
   
   <p align="center">
-    <img src="wireframe.png" width="500">
+    <img src="wireframe.jpg" width="500">
   </p>
   
  
