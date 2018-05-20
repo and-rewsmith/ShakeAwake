@@ -14,7 +14,6 @@
 		4E264B042084377C00AB610D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B022084377C00AB610D /* Main.storyboard */; };
 		4E264B062084377C00AB610D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B052084377C00AB610D /* Assets.xcassets */; };
 		4E264B092084377C00AB610D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E264B072084377C00AB610D /* LaunchScreen.storyboard */; };
-		4E264B102084655100AB610D /* AlarmClock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0DDA822084405700B729AC /* AlarmClock.png */; };
 		4E264B12208465FA00AB610D /* AlarmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E264B11208465FA00AB610D /* AlarmHandler.swift */; };
 		4E44B75D208546B100067F35 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75C208546B100067F35 /* AlarmTableViewCell.swift */; };
 		4E44B75F2085498300067F35 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E44B75E2085498300067F35 /* Alarm.swift */; };
@@ -23,7 +22,6 @@
 		4E600C77208FFBDB0035FC01 /* fade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C76208FFBDB0035FC01 /* fade.mp3 */; };
 		4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */; };
 		4E600CA5209021130035FC01 /* classic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA4209021130035FC01 /* classic.mp3 */; };
-		4E600CAA2091AA640035FC01 /* sleepRecording.ima4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CA92091AA640035FC01 /* sleepRecording.ima4 */; };
 		4E600CAD2092E6F70035FC01 /* SwipeAwake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E600CAB2092E6F70035FC01 /* SwipeAwake.xcdatamodeld */; };
 		4E600CB320931C110035FC01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CB220931C110035FC01 /* GoogleService-Info.plist */; };
 		4E600CB520931C190035FC01 /* bts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E600CB420931C190035FC01 /* bts.mp3 */; };
@@ -34,8 +32,6 @@
 
 /* Begin PBXFileReference section */
 		103B67F6610857635852D880 /* Pods_SwipeAwake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeAwake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D0DDA822084405700B729AC /* AlarmClock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AlarmClock.png; path = SwipeAwake/AlarmClock.png; sourceTree = "<group>"; };
-		3D0DDA842084410100B729AC /* AlarmClock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlarmClock.png; sourceTree = "<group>"; };
 		3D0DDA86208442BA00B729AC /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		4E2447BA208959A500445268 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		4E264AFB2084377C00AB610D /* SwipeAwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeAwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,9 +47,8 @@
 		4E600C72208FFBCE0035FC01 /* tropical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tropical.mp3; sourceTree = "<group>"; };
 		4E600C74208FFBD40035FC01 /* nokia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nokia.mp3; sourceTree = "<group>"; };
 		4E600C76208FFBDB0035FC01 /* fade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fade.mp3; sourceTree = "<group>"; };
-		4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwipeAwakeLoad.png; path = SwipeAwake/SwipeAwakeLoad.png; sourceTree = "<group>"; };
+		4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwipeAwakeLoad.png; sourceTree = "<group>"; };
 		4E600CA4209021130035FC01 /* classic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classic.mp3; sourceTree = "<group>"; };
-		4E600CA92091AA640035FC01 /* sleepRecording.ima4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sleepRecording.ima4; sourceTree = "<group>"; };
 		4E600CAC2092E6F70035FC01 /* SwipeAwake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwipeAwake.xcdatamodel; sourceTree = "<group>"; };
 		4E600CB220931C110035FC01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E600CB420931C190035FC01 /* bts.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bts.mp3; sourceTree = "<group>"; };
@@ -88,9 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				4E600CAB2092E6F70035FC01 /* SwipeAwake.xcdatamodeld */,
-				4E600CA92091AA640035FC01 /* sleepRecording.ima4 */,
-				4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */,
-				3D0DDA822084405700B729AC /* AlarmClock.png */,
 				4E264AFD2084377C00AB610D /* SwipeAwake */,
 				4E264AFC2084377C00AB610D /* Products */,
 				EBE17C041910E5A06395A054 /* Pods */,
@@ -109,6 +101,7 @@
 		4E264AFD2084377C00AB610D /* SwipeAwake */ = {
 			isa = PBXGroup;
 			children = (
+				4E600C7C209000E10035FC01 /* SwipeAwakeLoad.png */,
 				4E600CB420931C190035FC01 /* bts.mp3 */,
 				4E600CB220931C110035FC01 /* GoogleService-Info.plist */,
 				4E600CA4209021130035FC01 /* classic.mp3 */,
@@ -116,7 +109,6 @@
 				4E600C74208FFBD40035FC01 /* nokia.mp3 */,
 				4E600C72208FFBCE0035FC01 /* tropical.mp3 */,
 				4E264AFE2084377C00AB610D /* AppDelegate.swift */,
-				3D0DDA842084410100B729AC /* AlarmClock.png */,
 				4E264B002084377C00AB610D /* AlarmSelectionController.swift */,
 				4E264B022084377C00AB610D /* Main.storyboard */,
 				4E264B052084377C00AB610D /* Assets.xcassets */,
@@ -211,7 +203,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E264B102084655100AB610D /* AlarmClock.png in Resources */,
 				4E600C75208FFBD40035FC01 /* nokia.mp3 in Resources */,
 				4E600C77208FFBDB0035FC01 /* fade.mp3 in Resources */,
 				4E264B092084377C00AB610D /* LaunchScreen.storyboard in Resources */,
@@ -219,7 +210,6 @@
 				4E264B042084377C00AB610D /* Main.storyboard in Resources */,
 				4E600CB520931C190035FC01 /* bts.mp3 in Resources */,
 				4E600CA5209021130035FC01 /* classic.mp3 in Resources */,
-				4E600CAA2091AA640035FC01 /* sleepRecording.ima4 in Resources */,
 				4E600CB320931C110035FC01 /* GoogleService-Info.plist in Resources */,
 				4E600C73208FFBCE0035FC01 /* tropical.mp3 in Resources */,
 				4E600C7D209000E10035FC01 /* SwipeAwakeLoad.png in Resources */,
