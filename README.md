@@ -19,4 +19,7 @@
     <img src="/pics/wireframe.jpg" width="900">
   </p>
   
+  ## Build Instructions
+  This repository serves as an XCode project, so just clone the repo, pod install, open with XCode, and run the app.
+  
  
